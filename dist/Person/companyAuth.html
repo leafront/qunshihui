@@ -1,0 +1,92 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="yes" name="apple-touch-fullscreen"><meta content="telephone=no,email=no" name="format-detection"><link rel="stylesheet" href="/styles/reset.css?v=201605041151010"><link rel="stylesheet" href="/styles/main.css?v=201605041151010"><title>企业机构认证</title><script type="text/javascript" src="/scripts/component/mobilePublic.js?v=201605041151010"></script></head><body><section id="companyAuth-cont"></section><script type="text/html" id="tpl-company-cont"><div class="company-logo">
+        <img src="<%if(data.LogoUrl!==''){%> <%=data.LogoUrl%> <%}else{%> /images/company_logo.png <%}%>" data-img="<%=data.LogoUrl%>" id="logoUrl"/>
+    </div>
+    <ul class="company-list">
+        <li>
+            <label>名称</label>
+            <input type="text" maxlength="20" id="enterpriseName" placeholder="<%if(data.EnterpriseName==''){%>请输入名称<%}%>" value="<%=data.EnterpriseName%>">
+        </li>
+        <li>
+            <label>入驻模块</label>
+            <div class="company-module">
+                <dl class="company-module-menu">
+                    <dd id="companyAuth_motion" data-id="174" <%if(data.BigModuleType==174 || data.BigModuleType==0){%>class="active"<%}%>>
+                        <i class="ico1"></i>
+                        <em>企业运营</em>
+                    </dd>
+                </dl>
+            </div>
+        </li>
+        <li>
+            <div class="company-tag-des">
+                <h4>领域标签</h4>
+                <p>请选择营业执照允许经营的类型</p>
+            </div>
+            <dl class="company-tag" id="company-tag">
+            </dl>
+        </li>
+        <li class="identity-photo-h">
+            <div class="identity-upload-info">
+                <span>营业执照</span>
+                <button class="real-list-btns" id="businessUrl">+</button>
+                <div class="CertImage CertImage1" data-img="<%=data.BusinessUrl%>"> <%if(data.BusinessUrl!==''){%><img src="<%=data.BusinessUrl%>"<%}%> </div>
+            </div>
+        </li>
+        <li class="identity-photo-h">
+            <div class="identity-upload-info">
+                <span>组织机构代码证</span>
+                <button class="real-list-btns" id="certificateUrl">+</button>
+                <div class="CertImage CertImage2" data-img="<%=data.CertificateUrl%>"> <%if(data.CertificateUrl!==''){%><img src="<%=data.CertificateUrl%>"<%}%> </div>
+            </div>
+        </li>
+        <li class="identity-photo-h">
+            <div class="identity-upload-info">
+                <span>银行开户许可证</span>
+                <button class="real-list-btns" id="BankAccountUrl">+</button>
+                <div class="CertImage CertImage3" data-img="<%=data.BankAccountUrl%>"> <%if(data.BankAccountUrl!==''){%><img src="<%=data.BankAccountUrl%>"<%}%> </div>
+            </div>
+        </li>
+        <li class="identity-photo-h">
+            <div class="identity-upload-info">
+                <span>税务登记证</span>
+                <button class="real-list-btns" id="registrationUrl">+</button>
+                <div class="CertImage CertImage4" data-img="<%=data.RegistrationUrl%>"> <%if(data.RegistrationUrl!==''){%><img src="<%=data.RegistrationUrl%>"<%}%> </div>
+            </div>
+        </li>
+        <li class="identity-photo-h">
+            <div class="identity-upload-info">
+                <span>法人身份证 （正面）</span>
+                <button class="real-list-btns" id="legalIDCardUrl1">+</button>
+                <div class="CertImage CertImage5" data-img="<%=data.LegalIDCardUrl%>"> <%if(data.LegalIDCardUrl!==''){%><img src="<%=data.LegalIDCardUrl%>"<%}%> </div>
+            </div>
+        </li>
+        <li class="identity-photo-h">
+            <div class="identity-upload-info">
+                <span>法人身份证 （反面）</span>
+                <button class="real-list-btns" id="legalIDCardUrl2">+</button>
+                <div class="CertImage CertImage6" data-img=" <%if(data.LegalIDCardUrl2!==''){%><%=data.LegalIDCardUrl2%><%}%>"> <%if(data.LegalIDCardUrl2!==''){%><img src="<%=data.LegalIDCardUrl2%>"<%}%> </div>
+            </div>
+        </li>
+        <li>
+            <label>法人联系号码</label>
+            <input type="text" maxlength="13" id="legalMobile" placeholder="<%if(data.LegalMobile==''){%>请输入法人手机号<%}%>" value="<%=data.LegalMobile%>">
+        </li>
+        <li>
+            <label>邮箱</label>
+            <input type="text" maxlength="26" id="email" placeholder="<%if(data.LegalMobile==''){%>请输入邮箱<%}%>" value="<%=data.Email%>">
+        </li>
+        <li>
+            <label>企业联系电话</label>
+            <input type="text" maxlength="13" id="phone" placeholder="<%if(data.Phone==''){%>请输入联系电话<%}%>" value="<%=data.Phone%>">
+        </li>
+        <li>
+            <label>地址</label>
+            <input type="text" maxlength="60" id="address" placeholder="<%if(data.Address==''){%>请输入地址<%}%>" value="<%=data.Address%>">
+        </li>
+        <li>
+            <label>公司介绍</label>
+            <textarea maxlength="600" placeholder="<%if(data.Intro==''){%>请输入公司简介<%}%>" id="intro"><%=data.Intro%></textarea>
+        </li>
+    </ul>
+    <div class="perInfo-btn">
+        <a href="javascript:;" id="person-save">申请认证</a> <%if(data.Status==1){%><a href="/person/companyCard.html?memberId=<%=data.MemberID%>" class="perInfo-btn-ID">名片预览</a><%}%> </div></script><!--zwr--><script type="text/html" id="tpl-company-tag"> <% for(var i=0;i<data.length;i++){%> <dd data-id="<%=data[i].ID%>" <%for(var j=0;j<TagsId.length;j++){%><%if(TagsId[j]==data[i].ID){%>class="active"<%}%><%}%>><%=data[i].Name%></dd> <%}%> </script><script type="text/javascript" src="/scripts/lib/require.js?v=201605041151010" data-main="/scripts/modules/person/companyAuth.js?v=201605041151010"></script></body></html>

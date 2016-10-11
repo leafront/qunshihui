@@ -1,0 +1,11 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="yes" name="apple-touch-fullscreen"><meta content="telephone=no,email=no" name="format-detection"><link rel="stylesheet" href="/styles/reset.css?v=201605041151010"><link rel="stylesheet" href="/styles/main.css?v=201605041151010"><title>报名人数</title><script type="text/javascript" src="/scripts/component/mobilePublic.js?v=201605041151010"></script></head><body><section id="number-cont"><h3>已有260人报名</h3></section><script type="text/html" id="tpl-numberDetail"> <%for(var i=0;i<data.length;i++){%> <div class="number-cont-item">
+                <div class="number-cont-pic">
+                    <img src="<%=data[i].SolutionMember.Avatar%>"/>
+                    <div class="number-cont-des">
+                        <em><%=data[i].SolutionMember.NickName%></em>
+                        <span>律师</span>
+                    </div>
+                </div>
+                <div class="number-cont-txt">
+                    <span><%=(data[i].AddTime).slice(0,-5)%></span> <%if(data[i].IsBid==true){%> <button>已选择</button> <%}else if(data[0].IsBid==true){%> <button style="display:none"></button> <%}else{%> <button data-id="<%=data[i].ID%>" class="selectEntered">选择报名者</button> <%}%> </div>
+            </div> <%}%> </script><script src="/scripts/lib/require.js?v=201605041151010" data-main="/scripts/modules/home/numberDetail.js?v=201605041151010"></script></body></html>

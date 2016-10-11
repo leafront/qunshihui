@@ -1,0 +1,50 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="yes" name="apple-touch-fullscreen"><meta content="telephone=no,email=no" name="format-detection"><link rel="stylesheet" href="/styles/reset.css?v=201605041151010"><link rel="stylesheet" href="/styles/main.css?v=201605041151010"><title>个人信息</title><script type="text/javascript" src="/scripts/component/mobilePublic.js?v=201605041151010"></script></head><body class="bgf5"><section id="perInfo-cont"></section><script type="text/html" id="tpl-getPersonInfo"><div class="perInfo-pic">
+        <img src="<%=data.Avatar%>" data-img="<%=data.Avatar%>" id="avatar"/>
+    </div>
+    <ul class="perInfo-list">
+        <li>
+            <label>昵称</label>
+            <input id="nickName" type="text" maxlength="10" value="<%if(data.NickName==''){%>请输入昵称<%}else{%><%=data.NickName%><%}%>"/>
+        </li>
+        <li>
+            <label>性别</label>
+            <input type="text" id="sex" data-sex="1" readonly="readonly" placeholder="男、女" value="<%if(data.Sex==1){%>男<%}else if(data.Sex==2){%>女<%}%>"/>
+        </li>
+        <li>
+            <label>邮箱</label>
+            <input type="email" maxlength="26" id="email" placeholder="<%if(data.Email==''){%>请输入邮箱<%}%>" value="<%if(data.Email==''){%><%}else{%><%=data.Email%><%}%>"/>
+        </li>
+        <li>
+            <label>手机</label>
+            <input type="tel" id="phone" placeholder="<%if(data.Phone==''){%>请输入手机<%}%>" value="<%if(data.Phone==''){%><%}else{%><%=data.Phone%><%}%>"/>
+        </li>
+        <li>
+            <label>常驻地区</label>
+            <div class="person-areaId">
+                <select class="person-area" id="provinceId">
+
+                </select>
+                <select class="person-area" id="cityId">
+
+                </select>
+                <select class="person-area" id="countyId">
+
+                </select>
+            </div>
+        </li>
+        <li>
+            <label>个人简介</label>
+            <textarea maxlength="600" id="Memo" placeholder="<%if(data.Memo==''){%>请输入个人简介<%}%>"><%if(data.Memo==''){%><%}else{%><%=data.Memo%><%}%></textarea>
+        </li>
+    </ul>
+    <div class="perInfo-btn">
+        <a href="javascript:;" id="person-save">保存</a>
+        <em>特别注意：一旦认证成功，若想再修改认证类型或内容，需要联系客服取消原有认证。联系电话：4000189186</em> <%if(data.IdentityStatus==1 || data.IdentityStatus==2){%> <a href="/person/identity.html" class="perInfo-btn-ID">群师认证</a>
+            <em>群师（律师、医师等）请选择群师认证</em> <%}else if(data.RealnameStatus==1 || data.RealnameStatus==2){%> <a href="/person/realName.html" class="perInfo-btn-ID">实名认证</a>
+            <em>普通用户请选择实名认证</em> <%}else if(data.EnterpriseStatus==1 || data.EnterpriseStatus==2){%> <a href='/person/companyAuth.html' class="perInfo-btn-ID">企业机构认证</a>
+            <em>企业、金融机构、组织团体等请选择企业机构认证</em> <%}else{%> <a href="/person/identity.html" class="perInfo-btn-ID">群师认证</a>
+            <em>群师（律师、医师等）请选择群师认证</em>
+            <a href="/person/realName.html" class="perInfo-btn-ID">实名认证</a>
+            <em>普通用户请选择实名认证</em>
+            <a href='/person/companyAuth.html' class="perInfo-btn-ID">企业机构认证</a>
+            <em>企业、金融机构、组织团体等请选择企业机构认证</em> <%}%> </div></script><script type="text/javascript" src="/scripts/lib/require.js?v=201605041151010" data-main="/scripts/modules/person/personInfo.js?v=201605041151010"></script></body></html>

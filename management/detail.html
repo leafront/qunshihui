@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <link rel="stylesheet" href="/styles/reset.css"/>
+    <link rel="stylesheet" href="/styles/main.css"/>
+    <link rel="stylesheet" href="/scripts/kindeditor/themes/default/default.css"/>
+    <title>详情</title>
+    <script type="text/javascript" src="/scripts/component/mobilePublic.js"></script>
+</head>
+<body>
+    <div class="header-cat clearfix">
+        <h2>房地产啊房地产</h2>
+        <i class="header-cat-ico"></i>
+        <ul class="header-cat-menu">
+            <li>建筑房地产></li>
+            <li>房地产类></li>
+            <li>规划</li>
+        </ul>
+    </div>
+    <form>
+        <textarea name="content" style="width:700px;height:200px;visibility:hidden;">KindEditor</textarea>
+    </form>
+    <script charset="utf-8" src="/scripts/kindeditor/kindeditor-min.js"></script>
+    <script charset="utf-8" src="/scripts/kindeditor/lang/zh_CN.js"></script>
+    <script>
+        var editor;
+        KindEditor.ready(function(K) {
+            editor = K.create('textarea[name="content"]', {
+                resizeType : 1,
+                allowPreviewEmoticons : false,
+                allowImageUpload : false,
+                items : [
+                    'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+                    'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+                    'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+            });
+        });
+    </script>
+<script type="text/javascript" src="/scripts/lib/require.js" data-main="/scripts/modules/management/detail.js"></script>
+</body>
+</html>

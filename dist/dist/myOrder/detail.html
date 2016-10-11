@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="yes" name="apple-touch-fullscreen"><meta content="telephone=no,email=no" name="format-detection"><link rel="stylesheet" href="/styles/reset.css?v=201605041151010?v=201605041151010"><link rel="stylesheet" href="/styles/main.css?v=201605041151010?v=201605041151010"><title>订单详情</title><script type="text/javascript" src="/scripts/component/mobilePublic.js?v=201605041151010?v=201605041151010"></script></head><body><section id="orderDetail-cont"></section><script type="text/html" id="tpl-order-detail"><div class="orderDetail-tab" id="consultTab">
+        <div class="order-item" data-id="138">
+            <div class="order-tit clearfix">
+                <h2>订单类型：<%if(data.OrderType==1){%>悬赏求助<%}else{%>发布佣金<%}%></h2>
+                <span> <%if(data.Status==1){%> 待付款 <%}else if(data.Status==2){%> 处理中 <%}else if(data.Status==3){%> 待评价 <%}else if(data.Status==4){%> 已评价 <%}else if(data.Status==5){%> 退款中 <%}else if(data.Status==6 || data.Status==7){%> 已退货 <%}%> </span>
+            </div>
+            <div class="order-des-txt">
+                <h3><%=data.Demand.Title%></h3>
+                <p><%=data.Demand.Memo%></p>
+                <em>￥<%=data.Amount%></em>
+            </div>
+            <div class="order-des-times">
+                <span>下单时间：<%=data.OrderTime%></span>
+            </div>
+            <div class="order-des clearfix">
+                <div class="order-pic">
+                    <i class="problem-ico1"></i>
+                    <span><%=data.Demand.ModuleName%></span>
+                    <i class="problem-ico4"></i>
+                    <em>上海市</em>
+                </div>
+                <div class="order-btns"> <%if(data.Status==1){%> <a class="order-cancel" href="javascript:;">取消订单</a> <%if(data.BuyerID==memberId){%><a class="order-pay1" data-id="<%=data.ID%>" href="javascript:">去支付</a><%}else{%><a class="order-pay2" data-id="<%=data.ID%>" href="javascript:">喊Ta支付</a><%}%> <%}else if(data.Status==2){%> <%if(data.BuyerID==memberId){%> <a href="/myOrder/refund.html?orderId=<%=data.ID%>">退款</a><%}%> <%if(data.BuyerID==memberId){%><a class="order-receipt1" data-id="<%=data.ID%>" href="javascript:;">确认收货</a><%}else{%><a class="order-receipt2" href="javascript:;">喊Ta收货</a><%}%> <%}else if(data.Status==3){%> <%if(data.BuyerID==memberId){%><a href="/myOrder/evaluate.html?orderId=<%=data.ID%>">去评价</a><%}else{%><a class="order-state" href="javascript:;">喊Ta评价</a><%}%> <%}else if(data.Status==5){%> <a href="/myOrder/customerService.html?orderId=<%=data.ID%>">申请平台仲裁</a> <%if(data.BuyerID==memberId){%><a class="order-receipt" data-id="<%=data.ID%>" href="javascript:;">同意退款</a><%}else{%><a class="order-state" href="javascript:;">取消退款</a><%}%> <%}%> </div>
+            </div> <%if(data.Status==4){%> <div class="evalute-des">
+                    <p><%=data.Evaluation.Memo%></p>
+                </div> <%}%> </div>
+    </div>
+    <div class="orderDetail-des">
+        <em>状态：<%if(data.Status==1){%> 待付款 <%}else if(data.Status==2){%> 处理中 <%}else if(data.Status==3){%> 待评价 <%}else if(data.Status==4){%> 已评价 <%}else if(data.Status==5){%> 退货中 <%}else if(data.Status==6 || data.Status==7){%> 已退货 <%}%></em>
+        <p>是否付款：是</p>
+        <p>产品编号：<%=data.DemandID%></p>
+        <p>订单创建时间：<%=data.OrderTime%></p>
+        <p>订单交易号：<%=data.OrderNO%></p>
+    </div></script><script type="text/javascript" src="/scripts/lib/require.js?v=201605041151010?v=201605041151010" data-main="/scripts/modules/order/detail.js?v=201605041151010?v=201605041151010"></script></body></html>

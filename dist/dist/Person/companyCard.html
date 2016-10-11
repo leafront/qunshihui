@@ -1,0 +1,49 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="yes" name="apple-touch-fullscreen"><meta content="telephone=no,email=no" name="format-detection"><link rel="stylesheet" href="/styles/reset.css?v=201605041151010?v=201605041151010"><link rel="stylesheet" href="/styles/main.css?v=201605041151010?v=201605041151010"><script type="text/javascript" src="/scripts/component/mobilePublic.js?v=201605041151010?v=201605041151010"></script><title>名片预览</title></head><body><section id="personCard-cont"></section><script type="text/html" id="tpl-companyCard"><div class="personCard-msg clearfix">
+        <div class="card-info">
+            <i class="card-ico-dot"></i>
+            <h4>企业名片</h4>
+        </div>
+        <div class="companyCard-des">
+            <img src="<%=data.LogoUrl%>"/>
+            <h5><%=data.EnterpriseName%></h5>
+            <ul class="companyCard-des-txt">
+                <li>
+                    <i class="ico1"></i>
+                    <span>上海</span>
+                </li>
+                <li>
+                    <i class="ico2"></i>
+                    <span><%=data.ModuleName%></span>
+                </li>
+            </ul>
+            <h6>领域标签</h6>
+            <dl class="companyCard-tag clearfix"> <%for(var i=0;i<data.Tags.length;i++){%> <dd><%=data.Tags[i].Name%></dd> <%}%> </dl>
+        </div>
+    </div>
+    <div class="personCard-list">
+        <i class="card-ico-dot"></i>
+        <h4>联系方式</h4>
+        <ul class="personCard-list-menu">
+            <li>
+                <span>邮箱：</span>
+                <em><%=data.Email%></em>
+            </li>
+            <li>
+                <span>企业联系电话：</span>
+                <em><%=data.Phone%></em>
+            </li>
+            <li>
+                <span>常驻地区：</span>
+                <em><%=data.Address%></em>
+            </li>
+        </ul>
+    </div>
+    <div class="personCard-list">
+        <i class="card-ico-dot"></i>
+        <h4>企业简介</h4>
+        <textarea readonly="readonly" class="personCar-text"><%=data.Intro%></textarea>
+    </div>
+    <div class="foot-card">
+        <a href="#">+关注</a>
+        <a href="#">聊一聊</a>
+    </div></script><script type="text/javascript" src="/scripts/lib/require.js?v=201605041151010?v=201605041151010" data-main="/scripts/modules/person/companyCard.js?v=201605041151010?v=201605041151010"></script></body></html>

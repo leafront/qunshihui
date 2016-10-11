@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <link rel="stylesheet" href="/styles/reset.css"/>
+    <link rel="stylesheet" href="/styles/main.css"/>
+    <link rel="stylesheet" href="/styles/money.css"/>
+    <title>吃药提醒</title>
+    <script type="text/javascript" src="/scripts/component/mobilePublic.js"></script>
+</head>
+<body>
+<section class="completeMedicalInformation">
+    <div class="medicant_hint clearfix">
+        <div class="fl">药在饭前吃还是饭后吃，是要根据病情和药物对胃的刺激情况来决定的。 </div>
+        <div class="fr"></div>
+    </div>
+    <ul class="druggery_alarm">
+        <li class="bd_N">
+            <span>持续天数:</span>
+            <em>7天</em>
+        </li>
+        <li>
+            <span class="dateTime1">08:30</span>
+            <strong class="current"></strong>
+        </li>
+        <li>
+            <span class="dateTime2">12:30</span>
+            <strong></strong>
+        </li>
+        <li class="bd_N">
+            <span class="dateTime3">16:30</span>
+            <strong></strong>
+        </li>
+    </ul>
+    <div id="datePlugin"></div>
+</section>
+<script src="/scripts/lib/require.js" data-main="/scripts/modules/money/index.js"></script>
+</body>
+</html>

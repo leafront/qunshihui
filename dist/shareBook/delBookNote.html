@@ -1,0 +1,10 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="yes" name="apple-touch-fullscreen"><meta content="telephone=no,email=no" name="format-detection"><link rel="stylesheet" href="/styles/reset.css?v=201605041151010"><link rel="stylesheet" href="/styles/main.css?v=201605041151010"><title>删除账本</title><script type="text/javascript" src="/scripts/component/mobilePublic.js?v=201605041151010"></script></head><body><section id="books-cont"></section><script type="text/html" id="tpl-getBook"><ul class="books-cont-menu books-cont-del"> <% for(var i=0;i<data.length;i++){%> <li data-id="<%=data[i].ID%>">
+                    <i class="books-ico1"></i>
+                    <div class="books-txt">
+                        <span><%=data[i].Name%></span>
+                        <div class="books-img"> <% for(var j=0;j<data[i].MemberList.length;j++){%> <img src="<%=data[i].MemberList[j].Avatar%>" /> <%}%> </div>
+                    </div>
+                    <div class="book-del">
+                        <i class="book-del-ico"></i>
+                    </div>
+            </li> <%}%> </ul></script><script src="/scripts/lib/require.js?v=201605041151010" data-main="/scripts/modules/shareBook/delBookNote.js?v=201605041151010"></script></body></html>

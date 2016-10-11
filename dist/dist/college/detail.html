@@ -1,0 +1,29 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="yes" name="apple-touch-fullscreen"><meta content="telephone=no,email=no" name="format-detection"><link rel="stylesheet" href="/styles/reset.css?v=201605041151010?v=201605041151010"><link rel="stylesheet" href="/styles/main.css?v=201605041151010?v=201605041151010"><script type="text/javascript" src="/scripts/component/mobilePublic.js?v=201605041151010?v=201605041151010"></script><title>讲座详情</title></head><body><section id="collegeDetail-cont"><script type="text/html" id="tpl-college-cont"><div class="coll-tit">
+                <h4><%=data.Title%></h4>
+                <p>讲座主题：商学院</p>
+            </div>
+            <article class="college-des">
+                <p><%=#data.Memo%></p>
+            </article> <%if(area!=='hide'){%> <div class="college-enrol">
+                    <span class="college-entrol-txt">已有<%=data.ViewCount%>人查看，63人报名</span> <%if(data.Status==2){%><a href="javascript:;" class="college-entrol-btns">报名结束</a><%}else{%><a href="javascript:;" id="college-entrol-btns" class="college-entrol-btns">报名</a><%}%> <div class="problem-pic college-pic">
+                        <i class="problem-ico2"></i>
+                        <em><%=data.ViewCount%></em>
+                        <i data-id="<%=data.ID%>" class="<%if(data.IsCollected==true){%>problem-ico3 problem-ico3-active<%}else{%>problem-ico3<%}%>"></i>
+                        <em class="collectCount">0</em>
+                    </div>
+                </div> <%}%> </script></section><div class="entered-popup hide"><ul class="entered-popup-menu"><li><label>姓名</label><input maxlength="8" type="text" id="name"></li><li><label>邮箱</label><input maxlength="30" type="email" id="email" required></li><li><label>手机</label><input maxlength="11" type="tel" id="phone"></li></ul><input type="button" value="提交" id="entered-submit" class="entered-popup-submit"></div><div class="entered-mask hide"></div><div class="problem-answer college-answer hide" id="problem-answer"></div><div class="ques-foot hide"><input type="search" class="ques-search" id="qies-review"> <span id="ques-answer">回答</span></div><script type="text/html" id="tpl-answer"> <%if(area!=='hide'){%> <h4>全部答案</h4>
+            <ul class="problem-answer-menu" > <% for(var i=0;i<data.length;i++){%> <li class=problem-good-item>
+                    <div class="problem-txt problem-nobg">
+                        <img src="<%=data[i].MemberInfo.Avatar%>">
+                        <div class="problem-des-txt">
+                            <em><%=data[i].MemberInfo.NickName%></em><%if(data[i].MemberInfo.WorkYear!==0){%><i>执业<%=data[i].MemberInfo.WorkYear%>年</i><%}%> <span>医师</span>
+                        </div>
+                        <div class="problem-like" data-id="<%=data[i].ID%>">
+                            <i <%if(data[i].IsClickedGood==true){%> class="problem-like-ico1-active" <%}%>></i>
+                            <span class="clickCount"><%=data[i].ClickGoodCount%></span>
+                        </div>
+                    </div>
+                    <div class="problem-article">
+                        <p><%=data[i].Memo%></p>
+                    </div>
+                </li> <%}%> </ul> <%}%> </script><script type="text/javascript" src="/scripts/lib/require.js?v=201605041151010?v=201605041151010" data-main="/scripts/modules/college/detail.js?v=201605041151010?v=201605041151010"></script></body></html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="yes" name="apple-touch-fullscreen"><meta content="telephone=no,email=no" name="format-detection"><link rel="stylesheet" href="/styles/reset.css?v=201605041151010"><link rel="stylesheet" href="/styles/main.css?v=201605041151010"><title>法条详情</title><script type="text/javascript" src="/scripts/component/mobilePublic.js?v=201605041151010"></script></head><body><script>window.location.search.indexOf("header=no")>=0&&(document.getElementById("header").style.display="none",document.body.style.paddingTop=0)</script><section id="lawDetail-cont"></section><script type="text/html" id="tpl-lawDetail"><ul class="lawDetail-menu">
+            <li>
+                <span class="lawDetail-tit">法律法规</span>
+                <a href="/tools/lawInfo.html?LawID=<%=data.LawID%>"><h3><%=data.LawName%></h3></a>
+                <i><%=data.UnitName%></i>
+                <span>发布时间：<%=data.PublishTime%></span>
+                <span>实行时间：<%=data.ExecuteTime%></span>
+                <p><%=data.Memo%></p>
+            </li> <% for(var i=0;i<data.RefItems.length;i++){%> <li>
+                    <span class="lawDetail-tit"><%=data.RefItems[i].RefType%></span>
+                    <h3><%=data.RefItems[i].LawName%></h3>
+                    <i><%=data.RefItems[i].UnitName%></i>
+                    <span>发布时间：<%=data.RefItems[i].PublishTime%></span>
+                    <span>实行时间：<%=data.RefItems[i].ExecuteTime%></span>
+                    <p><%=data.RefItems[i].Memo%></p>
+                </li> <%}%> </ul></script><script src="/scripts/lib/require.js?v=201605041151010" data-main="/Scripts/modules/tools/lawDetail.js?v=201605041151010"></script></body></html>

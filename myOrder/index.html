@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <link rel="stylesheet" href="/styles/reset.css"/>
+    <link rel="stylesheet" href="/styles/main.css"/>
+    <title>我的订单</title>
+    <script type="text/javascript" src="/scripts/component/mobilePublic.js"></script>
+</head>
+<body class="bgf5">
+    <div class="header-search">
+        <input type="search" id="map-search" class="consult-search" placeholder="搜索问题、关键字">
+    </div>
+    <section id="consult-cont">
+        <ul class="consultList-menu" id="consultList-menu">
+            <li id="consult-whole" data-type="0" data-href="index.html?statues=0">
+                <a href="javascript:;">全部</a>
+            </li>
+            <li  data-type="1" data-href="index.html?statues=1"><a href="javascript:;">待付款</a></li>
+            <li  data-type="2" data-href="index.html?statues=2"><a href="javascript:;">处理中</a></li>
+            <li  data-type="3" data-href="index.html?statues=3"><a href="javascript:;">待评价</a></li>
+            <li  data-type="4" data-href="index.html?statues=4"><a href="javascript:;">已评价</a></li>
+            <li  data-type="5" data-href="index.html?statues=5"><a href="javascript:;">退款/售后</a></li>
+        </ul>
+        <div class="order-tab" id="consultTab">
+        </div>
+        <div class="consult-moreData hide">加载更多订单</div>
+        <div class="no-moreData hide">没有更多订单</div>
+    </section>
+    <script type="text/html" id="tpl-order-tab">
+        <% for(var i=0;i<data.length;i++){%>
+            <div class="order-item" data-id="<%=data[i].DemandID%>" data-moduleid="<%=data[i].Demand.ModuleType%>">
+                <div class="order-tit clearfix">
+                    <h2>订单类型：<%if(data[i].OrderType==1){%>悬赏求助<%}else if(data[i].OrderType==2){%>诉讼仲裁<%}%></h2>
+                    <span>
+                        <%if(data[i].Status==1){%>
+                            待付款
+                        <%}else if(data[i].Status==2){%>
+                            处理中
+                        <%}else if(data[i].Status==3){%>
+                            去评价
+                        <%}else if(data[i].Status==4){%>
+                           已评价
+                        <%}else if(data[i].Status==5){%>
+                            退款中
+                        <%}else if(data[i].Status==6 || data[i].Status==7){%>
+                            已退货
+                        <%}%>
+                    </span>
+                </div>
+                <div class="order-des-txt">
+                    <h3><%=data[i].Demand.Title%></h3>
+                    <p><%=data[i].Demand.Memo%></p>
+                    <em>￥<%=data[i].Amount%></em>
+                </div>
+                <div class="order-des-times">
+                    <span>下单时间：<%=data[i].OrderTime%></span>
+                </div>
+                <div class="order-des clearfix">
+                    <div class="order-pic">
+                        <i class="problem-ico1"></i>
+                        <span><%=data[i].Demand.ModuleName%></span>
+                        <i class="problem-ico4"></i>
+                        <em><%=data[i].Demand.CityName || '上海'%></em>
+                    </div>
+                    <div class="order-btns">
+                        <a class="order-state" href="/myOrder/detail.html?orderId=<%=data[i].ID%>">订单详情</a>
+                        <%if(data[i].Status==1){%>
+                            <%if(data[i].BuyerID==memberId){%><a class="order-pay1" data-id="<%=data[i].ID%>" href="javascript:;">支付</a><%}else{%><a class="order-pay2" data-id="<%=data[i].ID%>" href="javascript:;">喊Ta支付</a><%}%>
+                        <%}else if(data[i].Status==2){%>
+                            <%if(data[i].BuyerID==memberId && data[i].OrderType==1){%><a class="order-receipt1" data-id="<%=data[i].ID%>" href="javascript:;">确认收货</a><%}else{%><a class="order-receipt2"  data-id="<%=data[i].ID%>" href="javascript:;">喊Ta收货</a><%}%>
+                            <%if(data[i].BuyerID==memberId && data[i].OrderType==2){%><a class="order-arbitrate" data-id="<%=data[i].ID%>" href="javascript:;">确认收货</a><%}else{%><a class="order-receipt2"  data-id="<%=data[i].ID%>" href="javascript:;">喊Ta收货</a><%}%>
+                        <%}else if(data[i].Status==3){%>
+                            <%if(data[i].BuyerID==memberId){%><a href="/myOrder/evaluate.html?orderId=<%=data[i].ID%>">去评价</a><%}else{%><a class="order-evaluate" href="javascript:;" data-id="<%=data[i].ID%>">喊Ta评价</a><%}%>
+                        <%}else if(data[i].Status==4){%>
+                        <%}else if(data[i].Status==5){%>
+                           <a class="order-state" href="javascript:;">退款中</a>
+                        <%}else if(data[i].Status==6 || data[i].Status==7){%>
+                            <a class="order-state" href="javascript:;">已退货</a>
+                        <%}%>
+                    </div>
+                </div>
+                <%if(data[i].Status==4){%>
+                    <div class="evalute-des">
+                        <p><%=data[i].Evaluation.Memo%></p>
+                    </div>
+                <%}%>
+            </div>
+        <%}%>
+    </script>
+<script type="text/javascript" src="/scripts/lib/require.js" data-main="/scripts/modules/order/index.js"></script>
+</body>
+</html>

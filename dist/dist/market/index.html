@@ -1,0 +1,14 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="yes" name="apple-touch-fullscreen"><meta content="telephone=no,email=no" name="format-detection"><link rel="stylesheet" href="/styles/reset.css?v=201605041151010?v=201605041151010"><link rel="stylesheet" href="/styles/main.css?v=201605041151010?v=201605041151010"><title>海外市场</title><script type="text/javascript" src="/scripts/component/mobilePublic.js?v=201605041151010?v=201605041151010"></script></head><body class="bgwhite"><div class="header-search"><input type="search" id="map-search" class="consult-search" placeholder="搜索问题、关键字"></div><section id="market-cont"><div class="market-nav"><ul class="market-menu clearfix" id="market-menu"><script type="text/html" id="tpl-market-menu"> <% var i;var len=data.length;for(i=0;i<len;i++){%> <li data-id="<%=data[i].ID%>"><a href="javascript:;"><i class="ico<%=i+1%>"></i><span><%=data[i].Name%></span></a></li> <%}%> </script></ul></div><div class="market-list"><h3>最近热门</h3><ul class="market-list-menu" id="market-list-menu"><script type="text/html" id="tpl-market-list-menu"> <% var i;var len=data.length;for(i=0;i<len;i++){%> <li>
+                        <a href="/market/detail.html?id=<%=data[i].ID%>">
+                            <img src="<%=data[i].ImageUrl%>"/>
+                            <div class="market-list-txt fl">
+                                <h4><%=data[i].Title%></h4>
+                                <p><%=data[i].SubTitle%></p>
+                                <em><%=data[i].ModuleName%></em>
+                                <div class="market-des">
+                                    <i>￥</i><span><%=data[i].TotalFee%></span>
+                                    <i class="market-money-txt">起</i>
+                                </div>
+                            </div>
+                        </a>
+                    </li> <%}%> </script></ul><div class="consult-moreData hide" style="display: block">加载更多数据</div><div class="no-moreData hide" style="display: none">没有更多数据</div></div></section><script type="text/javascript" src="/scripts/lib/require.js?v=201605041151010?v=201605041151010" data-main="/scripts/modules/market/index.js?v=201605041151010?v=201605041151010"></script></body></html>

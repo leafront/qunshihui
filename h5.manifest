@@ -1,0 +1,21 @@
+CACHE MANIFEST
+CACHE:
+index.html
+styles/reset.css
+scripts/component/mobilePublic.js
+scripts/component/jquery.lazyload.min.js
+scripts/component/swiper.js
+scripts/lib/fastclick.js
+scripts/lib/iscroll.js
+scripts/lib/iscroll-lite.js
+scripts/lib/jquery-2.2.1.min.js
+scripts/lib/require.js
+scripts/lib/template.js
+images/books-ico.png
+images/home-ico.png
+images/user_bg.png
+images/banner_01.jpg
+images/article_pic.png
+NETWORK:
+*
+FALLBACK:

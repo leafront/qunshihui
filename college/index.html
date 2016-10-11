@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <link rel="stylesheet" href="/styles/reset.css"/>
+    <link rel="stylesheet" href="/styles/main.css"/>
+    <script type="text/javascript" src="/scripts/component/mobilePublic.js"></script>
+    <title>法商学院</title>
+</head>
+<body>
+    <div class="header-search">
+        <input type="search" id="map-search" class="consult-search" placeholder="搜索问题、关键字" />
+    </div>
+    <section id="college-cont" class="clearfix">
+        <ul class="consultList-menu" id="consultList-menu">
+        </ul>
+        <div class="college-tab clearfix" id="collegeTab">
+            <ul class="college-tab-list">
+            </ul>
+        </div>
+        <div class="consult-moreData hide">加载更多数据</div>
+        <div class="no-moreData hide">没有更多数据</div>
+    </section>
+    <script type="text/html" id="tpl-consultList-menu">
+        <li class="active" id="consult-whole" data-id="0">
+            <a href="javascript:;">全部</a>
+        </li>
+        <% for(var i=0;i<data.length;i++){%>
+        <li data-id="<%=data[i].ID%>"><a href="javascript:;"><%=data[i].Name%></a></li>
+        <%}%>
+    </script>
+    <script type="text/html" id="tpl-college-tab-list">
+        <% for(var i=0;i<data.length;i++){%>
+        <li class="clearfix <%if(data[i].Status==2){%>active<%}%>" data-id=<%=data[i].ID%> >
+            <a href="/college/detail.html?id=<%=data[i].ID%>">
+                <div class="college-list-date fl">
+                    <span><%=data[i].CityName%></span>
+                    <span><%=data[i].ActivityTime%></span>
+                    <em></em>
+                </div>
+                <div class="college-list-txt fr">
+                    <h4><%=data[i].Title%></h4>
+                    <p><%=data[i].ActivityDate%></p>
+                    <p><%=data[i].Address%></p>
+                    <button>了解详情</button>
+                </div>
+                <div class="college-tag">
+                    <%if(data[i].IsComing==true){%><span>即将开始</span><%}%>
+                </div>
+                <%if(data[i].Status==1){%>
+                    <div class="college-active">
+                        <span>已结束</span>
+                    </div>
+                <%}%>
+            </a>
+        </li>
+        <%}%>
+    </script>
+</body>
+<script src="/scripts/lib/require.js" data-main="/scripts/modules/college/index.js"></script>
+</html>

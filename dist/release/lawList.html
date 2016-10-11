@@ -1,0 +1,14 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="yes" name="apple-touch-fullscreen"><meta content="telephone=no,email=no" name="format-detection"><link rel="stylesheet" href="/styles/reset.css?v=201605041151010"><link rel="stylesheet" href="/styles/main.css?v=201605041151010"><script type="text/javascript" src="/scripts/component/mobilePublic.js?v=201605041151010"></script></head><body><div class="header-search"><form action="/release/lawList.html" enctype="application/x-www-form-urlencoded" method="get"><input type="hidden" name="pid" value="" id="release-pid"> <input type="search" name="search" class="consult-search" placeholder="搜索问题、关键字"></form><div id="header-ques-btn"><em class="header-ques-ico"></em> <span class="header-ques-txt">发布</span></div></div><section id="lawList-cont"><ul class="lawList-menu" id="lawList-menu"></ul></section><script type="text/html" id="tpl-lawList"> <% for(var i=0;i<data.length;i++){%> <li class="lawList-item" data-id="<%=data[i].ID%>">
+            <h3><%=data[i].Title%></h3> <%if(data.pid==149){%> <p>
+                    <span>借款金额：</span><em>￥<%=(data[i].TotalFee)/100%>元</em>
+                    <span>利率范围：</span><em><%=data[i].LitigationFinanceInfo.RateRange%>%</em>
+                    <span>借款期限：</span><em><%=data[i].LitigationFinanceInfo.BorrowPeriod%>/月</em>
+                </p> <%}else if(data.pid==170){%> <p>
+                    <span>借款金额：</span><em>￥<%=(data[i].TotalFee)/100%>元</em>
+                    <span>利率范围：</span><em><%=data[i].InclusiveFinanceInfo.RateRange%>%</em>
+                    <span>借款期限：</span><em><%=data[i].InclusiveFinanceInfo.BorrowPeriod%>/月</em>
+                </p> <%}%> <div class="lawList-txt">
+                <i class="lawList-time-ico"></i>
+                <time>需求将于<%=data[i].StopTime%>截止</time>
+                <button>查看详情</button>
+            </div> <% if(data[i].Status==2){%><span class="lawList-ques-statue">已解决</span><%}%> </li> <%}%> </script><script src="/scripts/lib/require.js?v=201605041151010" data-main="/scripts/modules/home/lawList.js?v=201605041151010"></script></body></html>

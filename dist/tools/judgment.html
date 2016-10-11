@@ -1,0 +1,119 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="yes" name="apple-touch-fullscreen"><meta content="telephone=no,email=no" name="format-detection"><link rel="stylesheet" href="/styles/reset.css?v=201605041151010"><script type="text/javascript" src="/scripts/component/mobilePublic.js?v=201605041151010"></script><style>input[type="button"], input[type="submit"], input[type="reset"] {
+    -webkit-appearance: none;
+    }
+    body {
+    background-color: #f3f3f3;
+    font-family: 'Microsoft YaHei';
+    padding-top:49px;
+    }
+    .searchWrap {
+    background-color: #000;
+    margin: 0;
+    padding: 8px 15px;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    box-sizing:border-box;
+    padding-right: 50px;
+    }
+    .searchInput {
+    background-color: #fff;
+    color: #8e8e8e;
+    border: 1px solid #bbbbbb;
+    width: 90%;
+    margin-left: 8%;
+    height: 31px;
+    line-height: 30px;
+    text-align: left;
+    padding: 5px;
+    font-size: 14px;
+    font-family: 'Microsoft YaHei';
+    background-repeat: no-repeat;
+    background-size: 32px 32px;
+    }
+
+    .searchImg {
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    height: 32px;
+    }
+    .content {
+    max-width: 600px;
+    height: 100%;
+    margin: 0 auto;
+    }
+
+    .bordersytle {
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    vertical-align: middle;
+    }
+
+    .listWrap {
+    margin: auto 9px;
+    }
+
+    .listWrap ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    }
+
+    .listWrap ul li {
+    list-style: none;
+    background-color: #fff;
+    border: 1px solid #dedfe0;
+    padding: 0 0.375rem 0.375rem;
+    margin-bottom: 13px;
+    }
+
+    .listWrap ul li a {
+    text-decoration: none;
+    }
+
+    .listWrap ul li .title1 {
+    font-size: 0.8rem;
+    color: #333333;
+    font-weight: normal;
+    }
+
+    .listWrap ul li .pubtime {
+    font-size: 0.7rem;
+    color: #8e8e8e;
+    }
+
+    .listWrap ul li .item {
+    font-size: 0.6rem;
+    color: #333333;
+    }
+
+    .moredata, .nodata {
+    padding: 5px;
+    background-color: #fff;
+    text-align: center;
+    color: #333;
+    font-size: 14px;
+    }
+
+    .back-ico {
+    background: url(/images/home-ico.png) no-repeat -0.3rem -7.6rem;
+    background-size: 18.75rem auto;
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    position: absolute;
+    left: 0.5rem;
+    top: 0.5rem;
+    }</style></head><body><div class="searchWrap"><i class="back-ico" onclick="history.back()"></i> <img class="searchImg pointer" id="searchImg" src="/images/search.png"> <input type="text" class="searchInput bordersytle" placeholder="输入关键字查询" id="searchInput"></div><div class="listWrap"><ul id="listContainer"></ul><div class="moredata pointer hide" id="moredata">查看更多数据</div><div class="nodata hide" id="nodata">没有更多数据了</div></div><script type="text/html" id="itemTpl"> <% for(var i=0;i<data.length;i++){%> <li>
+                <a href="/Tools/judgmentView.html?judgmentId=<%=data[i].DocID%>">
+                    <h1 class="title1"><%=data[i].Title%></h1>
+                    <p class="pubtime hide">发布时间</p>
+                    <p class="item"><%=data[i].Court%></p>
+                    <p class="item"><%=data[i].DocNum%></p>
+                </a>
+            </li> <%}%> </script><script src="/scripts/lib/require.js?v=201605041151010" data-main="/Scripts/modules/tools/judgment.js?v=201605041151010"></script></body></html>

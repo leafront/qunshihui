@@ -1,0 +1,59 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="yes" name="apple-touch-fullscreen"><meta content="telephone=no,email=no" name="format-detection"><title>新闻详细</title><style>* {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        html, body {
+            background-color: #fff;
+            /*min-width:320px;*/
+            padding: 5px;
+        }
+
+        header {
+            width: 100%;
+            margin: 0 auto;
+            background-color: #fff;
+            /*margin:0 10px 0 10px;	*/
+        }
+
+        .top {
+            height: 100%;
+            border-bottom: 1px solid gray;
+            color: #333333;
+        }
+
+        h1 {
+            font-size: 26px;
+            margin-top: 5px;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .ci-shu {
+            text-align: right;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .fa-bu {
+            margin-top: 2px;
+        }
+
+        .liang {
+            color: #f40;
+            font-weight: bold;
+        }
+
+        .down {
+            font-size: 16px;
+            line-height: 20px;
+            margin-top: 5px;
+            color: #707070;
+            overflow: hidden;
+        }</style></head><body><div id="news-cont"></div><script type="text/html" id="tpl-news"><div class="top">
+            <h1><%=data.Title%></h1>
+            <p>发布时间：<%=data.AddTime%></p>
+            <p class="ci-shu">浏览次数  <span class="liang"><%=data.ViewCount%></span></p>
+        </div>
+        <div class="down"> <%=#data.Memo%> </div></script><script src="/scripts/lib/require.js?v=201605041151010?v=201605041151010" data-main="/Scripts/modules/tools/WXNewsView.js?v=201605041151010?v=201605041151010"></script></body></html>

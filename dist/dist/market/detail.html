@@ -1,0 +1,40 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="yes" name="apple-touch-fullscreen"><meta content="telephone=no,email=no" name="format-detection"><link rel="stylesheet" href="/styles/reset.css?v=201605041151010?v=201605041151010"><link rel="stylesheet" href="/styles/main.css?v=201605041151010?v=201605041151010"><link rel="stylesheet" href="/styles/money.css?v=201605041151010?v=201605041151010"><title>海外市场详情</title><script type="text/javascript" src="/scripts/component/mobilePublic.js?v=201605041151010?v=201605041151010"></script></head><body class="ft7"><div class="entered-popup hide"><ul class="entered-popup-menu"><li><label>姓名</label><input maxlength="8" type="text" id="name"></li><li><label>邮箱</label><input maxlength="30" type="email" id="email" required></li><li><label>手机</label><input maxlength="11" type="tel" id="phone"></li></ul><input type="button" value="提交" id="entered-submit" class="entered-popup-submit"></div><div class="entered-mask hide"></div><script type="text/html" id="tpl-market-detail"><div class="imgauto head_market_detail">
+        <img src=<%=data.ImageUrl%> alt=""/>
+        <h1>
+            <span><%=data.Title%></span><br/>
+        </h1>
+        <p><%=data.SubTitle%></p>
+    </div>
+    <ul class="market_detail_list">
+        <li>
+            <div class="market_detail_con"> <%=#data.Memo%> </div>
+        </li>
+        <li>
+            <div class="market_detail_con professor_enrollBuy">
+                <p>已有人<span><%=data.ViewCount%></span>查看，<span>63</span>人报名</p>
+                <div class="clearfix">
+                    <strong class="fl"><em>¥</em><%=data.TotalFee%></strong>
+                    <!--<div class="purchase_quantity fr">
+                        库存:<span>26</span><button class="btn_subtract">-</button><span class="purchase_num">23</span><button class="btn_add">+</button>
+                    </div>-->
+                </div>
+                <ol class="registration_purchase clearfix">
+                    <li id="college-entrol-btns">报名</li>
+                    <li>购买</li>
+                </ol>
+                <div class="clearfix">
+                    <dl class="professor_comment_collection clearfix fr">
+                        <dd class="professor_comment">
+                            <em></em><%=data.ViewCount%> </dd>
+                        <dd class="professor_collection">
+                            <em class="<%if(data.IsCollected==true){%>click-like<%}%>" id="click-like" data-id="<%=data.ID%>"></em>
+                            <i id="collectCount"><%=data.CollectCount%></i>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </li>
+     </ul>
+            </div>
+        </li>
+    </ul></script><script type="text/javascript" src="/scripts/lib/require.js?v=201605041151010?v=201605041151010" data-main="/scripts/modules/market/detail.js?v=201605041151010?v=201605041151010"></script></body></html>

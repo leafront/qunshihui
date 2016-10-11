@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <link rel="stylesheet" href="/styles/reset.css"/>
+    <link rel="stylesheet" href="/styles/main.css"/>
+    <link rel="stylesheet" href="/styles/money.css"/>
+    <script type="text/javascript" src="/scripts/component/mobilePublic.js"></script>
+</head>
+<body>
+<header id="header">
+    <i class="back-ico" onclick="javascript:history.back();"></i>
+    <h2 id="header-tit">余额</h2>
+</header>
+<section>
+    <div class="remaining_sum">
+        <img src="/images/remainingMoney_01.jpg" alt=""/>
+        <div>
+            <span>0.00</span>
+            <a href="billingDetails.html">查看明细</a>
+        </div>
+    </div>
+    <div class="rechargeCash clearfix">
+        <a href="javascript:;">充值</a>
+        <a href="javascript:;">提现</a>
+    </div>
+    <a href="javascript:;"><p class="bankCard_title">银行卡</p></a>
+</section>
+<script src="/scripts/lib/require.js" data-main="/scripts/modules/home/list.js"></script>
+</body>
+</html>

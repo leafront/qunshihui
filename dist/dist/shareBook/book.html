@@ -1,0 +1,34 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="yes" name="apple-touch-fullscreen"><meta content="telephone=no,email=no" name="format-detection"><link rel="stylesheet" href="/styles/reset.css?v=201605041151010?v=201605041151010"><link rel="stylesheet" href="/styles/main.css?v=201605041151010?v=201605041151010"><title>账本信息</title><script type="text/javascript" src="/scripts/component/mobilePublic.js?v=201605041151010?v=201605041151010"></script></head><body><div id="datePlugin"></div><section id="booksDetail-cont"></section><div id="books-foot"><h4 id="bookNote">记一笔</h4><i class="foot-ico1" id="JsChart"></i> <i class="foot-ico2" id="JsDetail"></i></div><script type="text/html" id="tpl-lineDetail"><div class="booksDetail-tit" id="bookDetail">
+            <span>收入：</span>
+            <em><%=money.TotalIncome-money.TotalExpenses%></em>
+            <input class="books-times" value="2015-10-3" type="text" readonly/>
+        </div>
+        <div class="book-money-des">
+            <ul class="book-money-menu">
+                <li>
+                    <i class="money-ico1"></i>
+                    <span id="totalExpenses"><%=money.TotalIncome%>元</span>
+                </li>
+                <li>
+                    <i class="money-ico2"></i>
+                    <span id="TotalIncome"><%=money.TotalExpenses%>元</span>
+                </li>
+            </ul>
+        </div>
+        <div class="books-line">
+            <span></span>
+        </div>
+        <div class="books-menu" id="lineDetail"> <% for(var i=0;i<data.length;i++){%> <div class="books-menu-item">
+                <h4><%=data[i].Date%></h4> <%for(var j=0;j<data[i].List.length;j++){%> <% if(data[i].List[j].Type==1){%> <div class="books-menu-txt books-menu-left">
+                    <i class="books-item-right"></i>
+                    <img src="/images/member-pic.png" class="books-item-ico">
+                    <em class="books-item-pic2"></em>
+                    <p>收入：<%=data[i].List[j].Income%></p>
+                    <span><%=data[i].List[j].Remark%></span>
+                </div> <%}else{%> <div class="books-menu-txt books-menu-right">
+                    <i class="books-item-left"></i>
+                    <img src="/images/member-pic.png" class="books-item-ico">
+                    <em class="books-item-pic1"></em>
+                    <p>支出：<%=data[i].List[j].Expenses%></p>
+                    <span><%=data[i].List[j].Remark%></span>
+                </div> <%}%> <%}%> </div> <%}%> </div></script><script src="/scripts/lib/require.js?v=201605041151010?v=201605041151010" data-main="/scripts/modules/shareBook/book.js?v=201605041151010?v=201605041151010"></script></body></html>

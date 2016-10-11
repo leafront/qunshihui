@@ -1,0 +1,57 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="yes" name="apple-touch-fullscreen"><meta content="telephone=no,email=no" name="format-detection"><link rel="stylesheet" href="/styles/reset.css?v=201605041151010?v=201605041151010"><script type="text/javascript" src="/scripts/component/mobilePublic.js?v=201605041151010?v=201605041151010"></script><style>input[type="button"], input[type="submit"], input[type="reset"] {
+            -webkit-appearance: none;
+        }
+        body {
+            background-color: #f3f3f3;
+        }
+        .container {
+            margin: 22px 13px;
+            position: relative;
+        }
+
+        .viewCount {
+            width: 50px;
+            line-height: 30px;
+            height: 30px;
+            display: inline-block;
+        }
+
+        .bordersytle {
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            border-radius: 5px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            vertical-align: middle;
+        }
+
+        .uploadbutton {
+            display: block;
+            color: #fff;
+            background-color: #2487f5;
+            font-size: 17px;
+            line-height: 40px;
+            text-decoration: none;
+            padding: 0px 10px;
+            position: absolute;
+            top: 0;
+            right: 15px;
+        }
+        #lawDoc-cont{
+            overflow:hidden;
+        }
+        .container h1{
+            width:13rem;
+            color:#333;
+        }</style></head><body><section id="lawDoc-cont"></section><script type="text/html" id="tpl-lawDocView"><div class="container">
+            <h1 style="font-size: 16px;"><%=data.Title%></h1>
+
+            <a class="uploadbutton bordersytle" href="<%=data.PdfUrl%>">下载</a>
+        </div>
+        <p>
+            <img src="/images/view.png" />
+                <span class="viewCount"> <%=data.DownloadCount%> </span>
+            <img id="lawDoc-like" src="/images/collect.png" />
+            <span class="viewCount" id="viewCount"><%=data.CollectCount%></span>
+        </p>
+        <iframe style="border:none; width:100%; min-height:600px;" src="http://res.qunshihui.net.cn/pdfjs/web/viewer.html?file=<%=data.PdfUrl%>"></iframe></script><script src="/scripts/lib/require.js?v=201605041151010?v=201605041151010" data-main="/Scripts/modules/tools/lawdocView.js?v=201605041151010?v=201605041151010"></script></body></html>

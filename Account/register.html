@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <link rel="stylesheet" href="/styles/reset.css"/>
+    <link rel="stylesheet" href="/styles/main.css"/>
+    <title>注册</title>
+    <script type="text/javascript" src="/scripts/component/mobilePublic.js"></script>
+</head>
+<body class="bgef">
+    <section class="login-des">
+        <div id="login-cont">
+            <form id="frm">
+                <p><label>手机</label><input type="tel" placeholder="请输入手机号" class="login-txt" name="phone" id="phone" maxlength="20" /></p>
+                <div class="login-varfiy">
+                    <p><label>验证码</label><input type="text" placeholder="输入验证码" class="login-validate" name="code" id="code" maxlength="6" /></p>
+                    <input readonly="readonly" class="login-code" id="sendcode" value="发送验证码"/>
+                </div>
+                <p><label>昵称</label><input type="text" name="nickname" id="nickname" maxlength="10" placeholder="输入昵称" class="login-txt" /></p>
+                <p><label>密码</label><input type="password" placeholder="请输入密码(6-16个字符)" class="login-pass" name="password" id="password" minlength="6" maxlength="16" /></p>
+                <input type="button" class="login-submit" value="确认" id="btnsubmit" />
+            </form>
+            <a href="javascript:;" class="login-reg">已有账号马上登陆</a>
+            <div class="login-protocol">
+                <input type="checkbox" checked="checked" class="login-checked"/><span>我已阅读并同意<a href="/person/protocol.html" class="protocol-book">《群师慧用户注册协议》</a></span>
+            </div>
+        </div>
+    </section>
+    <script src="/scripts/lib/require.js" data-main="/scripts/modules/account/register.js"></script>
+</body>
+</html>

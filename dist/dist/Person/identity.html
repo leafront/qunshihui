@@ -1,0 +1,51 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="yes" name="apple-touch-fullscreen"><meta content="telephone=no,email=no" name="format-detection"><link rel="stylesheet" href="/styles/reset.css?v=201605041151010?v=201605041151010"><link rel="stylesheet" href="/styles/main.css?v=201605041151010?v=201605041151010"><script type="text/javascript" src="/scripts/component/mobilePublic.js?v=201605041151010?v=201605041151010"></script><title>群师认证</title></head><body><section id="identity-cont"></section><script type="text/html" id="tpl-person-identity"> <% for(var i=0;i<data.length;i++){%> <option value="<%=data[i].ID%>"<%if(IdentityType==data[i].ID){%>selected="selected"<%}%>><%=data[i].Name%></option> <%}%> </script><script type="text/html" id="tpl-person-GoodField"> <% for(var i=0;i<data.length;i++){%> <dd <%if(goodFieldStr!==null){%> <%for(var j=0;j<goodFieldStr.length;j++){%> <%if(goodFieldStr[j]==data[i].ID){%>class="active"<%}%> <%}%>> <%=data[i].Name%> <%}%> </dd> <%}%> </script><script type="text/html" id="tpl-identity-degree"> <% for(var i=0;i<data.length;i++){%> <option value="<%=data[i].ID%>" <%if(DegreeId==data[i].ID){%>selected="selected"<%}%>><%=data[i].Name%></option> <%}%> </script><script type="text/html" id="tpl-identity-cont"><ul class="real-list identity-list">
+        <li>
+            <label>身份类型</label>
+            <select class="person-identity-type" id="person-identity">
+            </select>
+        </li>
+        <li>
+            <label>执业证号</label>
+            <input type="number" maxlength="20" placeholder="<%if(data.CertNO==''|| data.CertNO==null){%>请输入执业证号<%}%>" value="<%if(data.CertNO!==''){%><%=data.CertNO%><%}%>" id="CertNO" >
+        </li>
+        <li>
+            <label>发证日期</label>
+            <input type="text" id="CertBeginTime" placeholder="<%if(data.CertBeginTime==''|| data.CertBeginTime==null){%>请选择日期<%}%>" value="<%if(data.CertBeginTime!==''){%><%=data.CertBeginTime%><%}%>">
+        </li>
+        <li class="identity-photo-h">
+           <div class="identity-upload-info">
+               <span>证件照片</span>
+               <button class="real-list-btns" id="chooseImage">+</button>
+               <div class="CertImage" data-img="<%if(data.CertImage!=='null' && data.CertImage!==null){%><%=data.CertImage%><%}%>"> <%if(data.CertImage!=='null' && data.CertImage!==null){%><img src="<%=data.CertImage%>"/> <%}%> </div>
+           </div>
+        </li>
+        <li>
+            <label>擅长领域</label>
+            <dl  class="company-tag" id="GoodField">
+            </dl>
+        </li>
+        <li>
+            <label>工作单位</label>
+            <input type="text" maxlength="15" id="UnitName" placeholder="<%if(data.UnitName==''|| data.UnitName==null){%>请输入工作单位<%}%>" value="<%if(data.UnitName!==''){%><%=data.UnitName%><%}%>">
+        </li>
+        <li>
+            <label>工作单位电话</label>
+            <input type="text" maxlength="13" required id="UnitPhone" placeholder="<%if(data.UnitPhone==''|| data.UnitPhone==null){%>请输入工作单位电话<%}%>" value="<%if(data.UnitPhone!==''){%><%=data.UnitPhone%><%}%>">
+        </li>
+        <li>
+            <label>毕业院校</label>
+            <input type="text" maxlength="15" id="School" placeholder="<%if(data.School==''|| data.School==null){%>请输入毕业院校<%}%>" value="<%if(data.School!==''){%><%=data.School%><%}%>">
+        </li>
+        <li>
+            <label>学历</label>
+            <select class="person-identity-type" id="Degree">
+            </select>
+        </li>
+        <li class="indetity-major">
+            <label>专业</label>
+            <input type="text" maxlength="15" id="Major" placeholder="<%if(data.Major==''|| data.Major==null){%>请输入专业<%}%>" value="<%if(data.Major!==''){%><%=data.Major%><%}%>">
+        </li>
+    </ul>
+    <div class="perInfo-btn">
+        <a href="javascript:;" data-statues="<%=data.IdentityStatus%>" id="identity-save">保存</a> <%if(data.IdentityStatus==2){%><a href="/person/personCard.html?memberId=<%=data.ID%>" class="perInfo-btn-ID">名片预览</a><%}%> </div>
+    <div id="datePlugin"></div></script><script src="/scripts/lib/require.js?v=201605041151010?v=201605041151010" data-main="/scripts/modules/person/identity.js?v=201605041151010?v=201605041151010"></script></body></html>

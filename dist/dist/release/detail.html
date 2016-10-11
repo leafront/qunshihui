@@ -1,0 +1,62 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="yes" name="apple-touch-fullscreen"><meta content="telephone=no,email=no" name="format-detection"><link rel="stylesheet" href="/styles/reset.css?v=201605041151010?v=201605041151010"><link rel="stylesheet" href="/styles/main.css?v=201605041151010?v=201605041151010"><title>详情</title><script type="text/javascript" src="/scripts/component/mobilePublic.js?v=201605041151010?v=201605041151010"></script></head><body><section id="problem-cont" class="hide"><article id="problem-txt"></article><div id="answer-cont"></div><div class="consult-moreData hide">加载更多数据</div><div class="no-moreData hide">没有更多数据</div></section><div class="ques-foot"><input type="search" class="ques-search" id="qies-review"> <span id="ques-answer">回答</span></div><script type="text/html" id="tpl-detailCont"><div class="problem-txt">
+        <img src="<%=data.MemberInfo.Avatar%>"/>
+        <div class="problem-des-txt">
+            <em class="em-name"><%=data.MemberInfo.NickName%></em>
+            <span><%=data.PublishTime%></span>
+        </div>
+        <div class="problem-des-money"> <%if(data.TotalFee!==0){%><span>￥<%=(data.TotalFee)/100%></span><%}%> <em><%=(data.PublishTime).slice(0,-5)%>截止</em>
+        </div>
+    </div>
+    <div class="problem-item">
+        <h3 <%if(data.Title==""){%>class="hide"<%}%>><%=data.Title%></h3>
+        <p> <%=data.Memo%> </p>
+    </div>
+    <div class="problem-pic">
+        <i class="problem-ico1"></i>
+        <span><%=data.ModuleName%></span> <% if(data.CityName!=="" && data.HideArea==false){%> <i class="problem-ico4"></i>
+        <em><%=data.CityName%></em> <%}%> <i class="problem-ico2"></i>
+        <em><%=data.CommentCount%></em>
+        <i id="detail-click" class="<%if(data.IsCollected==true){%>problem-ico3-active<%}%> problem-ico3">
+        </i>
+        <em id="collectCount"><%=data.CollectCount%></em>
+    </div> <% if(data.MemberID==data.userID){%> <div class="problem-people hide">
+        <div class="problem-people-txt">
+            <span id="BidCount"></span> <%if(data.pid==146){%> <a <%if(data.BidCount==0){%>href="javascript:;"<%}else{%>href="/release/numberDetail.html?detailId=<%=data.detailId%>"<%}%> class="problem-people-btns">查看报名者</a> <%}else if(data.pid==147){%> <a <%if(data.BidCount==0){%>href="javascript:;"<%}else{%>href="/release/schemeList.html?detailId=<%=data.detailId%>"<%}%> class="problem-people-btns">查看报名者与方案列表</a> <%}%> </div>
+        <div class="problem-people-pic" id="GetDemandBid">
+        </div>
+    </div> <%}%> <% if(data.MemberID!==data.userID){%> <div class="problem-people hide" id="entered-people">
+        <div class="problem-people-txt">
+            <span>已有<%=data.BidCount%>人报名<%=data.BidCount%>人被查看</span>
+        </div> <% if(data.pid==146){%> <div class="problem-people-pic"> <%if(data.IsBid==true){%><a href="javascript:;">已报名</a><%}else{%><a href="javascript:;" id="entered">报名抢单</a><%}%> </div> <%}else if(data.pid==147){%> <div class="problem-people-pic"> <%if(data.IsBid==true){%><a href="javascript:;">已提交方案</a><%}else{%><a href="/release/scheme.html?id=<%=data.ID%>&returnurl="+location.href>提交方案</a><%}%> </div> <%}%> </div> <%}%> </script><script type="text/html" id="tpl-answer"><div class="problem-answer <%if(data[0].IsBest==false){%>hide<%}%>" id="good-answer">
+            <h4>最佳答案</h4>
+            <div class="problem-txt problem-nobg">
+                <img src="<%=data[0].MemberInfo.Avatar%>">
+                <div class="problem-des-txt">
+                    <em><%=data[0].MemberInfo.NickName%></em><%if(data[0].MemberInfo.WorkYear!==0){%><i>执业<%=data[0].MemberInfo.WorkYear%>年</i><%}%> <span>医师</span>
+                </div>
+                <div class="problem-like" data-id="<%=data[0].ID%>">
+                    <i <%if(data[0].IsClickedGood==true){%> class="problem-like-ico1-active" <%}%>></i>
+                    <span class="clickCount"><%=data[0].ClickGoodCount%></span>
+                </div>
+            </div>
+            <div class="problem-article">
+                <p><%=data[0].Memo%></p>
+            </div>
+        </div>
+    <div class="problem-answer" id="problem-answer">
+        <h4>全部答案</h4>
+        <ul class="problem-answer-menu" > <% for(var i=0;i<data.length;i++){%> <li class=problem-good-item>
+                <div class="problem-txt problem-nobg">
+                    <img src="<%=data[i].MemberInfo.Avatar%>">
+                    <div class="problem-des-txt">
+                        <em><%=data[i].MemberInfo.NickName%></em><%if(data[i].MemberInfo.WorkYear!==0){%><i>执业<%=data[i].MemberInfo.WorkYear%>年</i><%}%> <span>医师</span>
+                    </div>
+                    <div class="problem-like" data-id="<%=data[i].ID%>">
+                        <i <%if(data[i].IsClickedGood==true){%> class="problem-like-ico1-active" <%}%>></i>
+                        <span class="clickCount"><%=data[i].ClickGoodCount%></span>
+                    </div>
+                </div>
+                <div class="problem-article">
+                    <p><%=data[i].Memo%></p> <%=dapid%> <%if(data.pid!=='147'){%> <%if(data[0].IsBest==false && data.memberId==data.ID){%> <span data-id="<%=data[i].ID%>" class="set-answer">设为最佳答案</span> <%}%> <%}%> </div>
+            </li> <%}%> </ul>
+    </div></script></body><script src="/scripts/lib/require.js?v=201605041151010?v=201605041151010" data-main="/scripts/modules/home/detail.js?v=201605041151010?v=201605041151010"></script></html>

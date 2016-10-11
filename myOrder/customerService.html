@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <link rel="prefetch" href="/Tools/index.html" />
+    <link rel="stylesheet" href="/styles/reset.css"/>
+    <link rel="stylesheet" href="/styles/main.css"/>
+    <script type="text/javascript" src="/scripts/component/mobilePublic.js"></script>
+    <title>申请平台仲裁</title>
+</head>
+<body>
+<section id="refund-cont">
+    <ul class="refund-menu">
+        <li>
+            <label>申请理由</label>
+            <em>(请尽量填写清楚您的理由）</em>
+        </li>
+        <li>
+            <textarea placeholder="请填写申请平台仲裁的理由" class="refund-des"></textarea>
+        </li>
+        <li>
+            <label>添加图片</label>
+            <em>(可以上传有帮助的图片证据）</em>
+        </li>
+        <li>
+            <button class="customer-add">+</button>
+        </li>
+    </ul>
+</section>
+<div class="setting-btns confirmOrder-btn" id="service-submit">
+    <span>提交申请</span>
+</div>
+<script type="text/javascript" src="/scripts/lib/require.js" data-main="/scripts/modules/order/customerService.js"></script>
+</body>
+</html>
