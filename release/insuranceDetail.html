@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <link rel="stylesheet" href="/styles/reset.css"/>
+    <link rel="stylesheet" href="/styles/main.css"/>
+    <title>安全保障详情</title>
+    <script type="text/javascript" src="/scripts/component/mobilePublic.js"></script>
+    <style>
+        body {
+            background-color: #fff;
+        }
+        #news-cont{
+            padding:10px;
+        }
+        header {
+            width: 100%;
+            margin: 0 auto;
+            background-color: #fff;
+        }
+
+        .top {
+            height: 100%;
+            border-bottom: 1px solid gray;
+            color: #333333;
+        }
+
+        h1 {
+            font-size: 26px;
+            margin-top: 5px;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .ci-shu {
+            text-align: right;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .fa-bu {
+            margin-top: 2px;
+        }
+
+        .liang {
+            color: #f40;
+            font-weight: bold;
+        }
+
+        .down {
+            font-size: 16px;
+            line-height: 20px;
+            margin-top: 5px;
+            color: #707070;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<script>
+    if(window.location.search.indexOf('header=no')>=0){
+        document.getElementById("header").style.display="none";
+        document.body.style.paddingTop=0;
+    }
+</script>
+<div id="news-cont">
+</div>
+<script type="text/html" id="tpl-news">
+    <div class="top">
+        <h1><%=data.Title%></h1>
+        <div style="font-size:18px;">
+            <p style="float:left;">发布时间:<%=data.SendTime%></p>
+            <p class="ci-shu" style="float:right">浏览次数  <span class="liang"><%=data.ViewCount%></span></p>
+        </div>
+        <div style="float:none; clear:both;"></div>
+    </div>
+    <div class="down">
+        <%=#data.Memo%>
+    </div>
+</script>
+<script src="/scripts/lib/require.js" data-main="/Scripts/modules/home/insuranceDetail.js"></script>
+</body>
+</html>

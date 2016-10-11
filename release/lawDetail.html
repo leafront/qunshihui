@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <link rel="stylesheet" href="/styles/reset.css"/>
+    <link rel="stylesheet" href="/styles/main.css"/>
+    <title>详情</title>
+    <script type="text/javascript" src="/scripts/component/mobilePublic.js"></script>
+</head>
+<body>
+<section id="problem-cont">
+    <article id="problem-txt">
+    </article>
+    <div id="answer-cont">
+    </div>
+</section>
+<div class="ques-foot">
+    <input type="search" class="ques-search" id="qies-review"/>
+    <span id="ques-answer">回答</span>
+</div>
+<script type="text/html" id="tpl-detailCont">
+    <div class="problem-txt">
+        <img src="<%=data.MemberInfo.Avatar%>"/>
+        <div class="problem-des-txt">
+            <em class="em-name"><%=data.MemberInfo.NickName%></em>
+            <span><%=data.PublishTime%></span>
+        </div>
+        <div class="problem-des-money">
+            <span>￥<%=(data.TotalFee)/100%>元</span>
+            <em>需求将于<%=data.StopTime%>截止</em>
+        </div>
+    </div>
+    <div class="problem-item">
+        <h3 <%if(data.Title==""){%>class="hide"<%}%>><%=data.Title%></h3>
+        <p>
+            <%=data.Memo%>
+        </p>
+    </div>
+    <div class="problem-pic">
+        <i class="problem-ico4" style="margin-left:0;"></i>
+        <em>北京</em>
+        <i class="problem-ico2" style="margin-left:9rem;"></i>
+        <em><%=data.CommentCount%></em>
+        <i id="detail-click" class="<%if(data.IsCollected==true){%>problem-ico3-active<%}%> problem-ico3">
+        </i>
+        <em id="collectCount"><%=data.CollectCount%></em>
+    </div>
+    <div class="problem-info">
+        <ul class="problem-info-list">
+            <% if(data.pid==149){%>
+            <li>
+                <span>姓名：</span><em><%=data.MemberInfo.NickName%></em>
+            </li>
+            <li>
+                <span>借款金额:</span><em><%=(data.TotalFee)/100%>元</em>
+            </li>
+            <li>
+                <span>利率范围：</span><em><%=data.ExtInfo.RateRange%></em>
+            </li>
+            <li>
+                <span>借款期限:</span><em><%=data.ExtInfo.BorrowPeriod%>/月</em>
+            </li>
+            <li>
+                <span>是否有律师担保:</span><em>
+                <%if(data.ExtInfo.HasSponsor==true){%>
+                是
+                <%}else{%>
+                否
+                <%}%>
+            </em>
+            </li>
+            <li>
+                <span>是否提供房产抵押担保:</span><em>
+                <%if(data.ExtInfo.HasMortgage==true){%>
+                是
+                <%}else{%>
+                否
+                <%}%>
+            </em>
+            <li>
+                <span>证件号：</span><em><%=data.ExtInfo.BorrowerCardNO%></em>
+            </li>
+            <li>
+                <span>个人信息：</span><em><%if(data.ExtInfo.Uses==null){%>无<%}else{%><%=data.ExtInfo.Uses%><%}%></em>
+            </li>
+            <%}else if(data.pid==170){%>
+                <li>
+                    <span>借款金额:</span><em><%=(data.ExtInfo.BorrowMoney)/100%>元</em>
+                </li>
+                <li>
+                    <span>借款用途:</span><em><%=(data.TotalFee)/100%>元</em>
+                </li>
+                <li>
+                    <span>利率范围：</span><em><%=data.ExtInfo.RateRange%></em>
+                </li>
+                <li>
+                    <span>借款期限:</span><em><%=data.ExtInfo.BorrowPeriod%>/月</em>
+                </li>
+                <li>
+                    <span>是否有群师推荐:</span><em>
+                    <%if(data.ExtInfo.HasRecommend==true){%>
+                    是
+                    <%}else{%>
+                    否
+                    <%}%>
+                </em>
+                </li>
+                <li>
+                    <span>是否有律师保荐:</span>
+                    <em>
+                    <%if(data.ExtInfo.HasSponsor==true){%>
+                    是
+                    <%}else{%>
+                    否
+                    <%}%>
+                    </em>
+                 </li>
+                 <li>
+                    <span>是否提供资产抵押:</span>
+                    <em>
+                    <%if(data.ExtInfo.HasMortgage==true){%>
+                    是
+                    <%}else{%>
+                    否
+                    <%}%>
+                    </em>
+                </li>
+            <%}else if(data.pid==171){%>
+                <li>
+                    <span>借款金额:</span><em><%=(data.ExtInfo.Money)/100%>元</em>
+                </li>
+                <li>
+                    <span>转让金额:</span><em><%=(data.ExtInfo.TransferMoney)/100%>元</em>
+                </li>
+                <li>
+                    <span>担保类型：</span>
+                    <em>
+                        <% if(data.ExtInfo.GuaranteeType==0){%>
+                            无担保
+                        <%}else if(data.ExtInfo.GuaranteeType==1){%>
+                            他人担保
+                        <%}else if(data.ExtInfo.GuaranteeType==2){%>
+                            抵押担保
+                        <%}else if(data.ExtInfo.GuaranteeType==3){%>
+                            质押担保
+                        <%}else if(data.ExtInfo.GuaranteeType==4){%>
+                            其他担保
+                        <%}%>
+                    </em>
+                </li>
+                <li>
+                    <span>债权人类型:</span><em>
+                    <%if(data.ExtInfo.CreditorType==1){%>
+                       个人
+                    <%}else if(data.ExtInfo.CreditorType==2){%>
+                       企业
+                    <%}%>
+                   </em>
+                </li>
+                <li>
+                    <span>债权人名称:</span><em><%=data.ExtInfo.CreditorName%></em>
+                </li>
+                <li>
+                    <span>债权人联系电话:</span><em><%=data.ExtInfo.CreditorPhone%></em>
+                </li>
+                <li>
+                    <span>债权人联系地址:</span><em><%=data.ExtInfo.CreditorAddress%></em>
+                </li>
+                <li>
+                    <span>债权人证件号:</span><em><%=data.ExtInfo.CreditorCardNO%></em>
+                </li>
+                <li>
+                    <span>债务人类型:</span>
+                    <%if(data.ExtInfo.DebtorType==1){%>
+                        个人
+                    <%}else if(data.ExtInfo.DebtorType==2){%>
+                         企业
+                    <%}%>
+                </li>
+                <li>
+                    <span>债务人名称:</span><em><%=data.ExtInfo.DebtorName%></em>
+                </li>
+                <li>
+                    <span>债务人联系电话:</span><em><%=data.ExtInfo.DebtorPhone%></em>
+                </li>
+                <li>
+                    <span>债务人联系地址:</span><em><%=data.ExtInfo.DebtorAddress%></em>
+                </li>
+                <li>
+                    <span>债务人证件号:</span><em><%=data.ExtInfo.DebtorCardNO%></em>
+                </li>
+            <%}else if(data.pid==172){%>
+                <li>
+                    <span>借款金额:</span><em><%=(data.ExtInfo.Money)/100%>元</em>
+                </li>
+                <li>
+                    <span>回报率:</span><em><%=(data.ExtInfo.ReturnRate)%></em>
+                </li>
+                <li>
+                    <span>担保类型：</span>
+                    <em>
+                        <% if(data.ExtInfo.GuaranteeType==0){%>
+                        无担保
+                        <%}else if(data.ExtInfo.GuaranteeType==1){%>
+                        他人担保
+                        <%}else if(data.ExtInfo.GuaranteeType==2){%>
+                        抵押担保
+                        <%}else if(data.ExtInfo.GuaranteeType==3){%>
+                        质押担保
+                        <%}else if(data.ExtInfo.GuaranteeType==4){%>
+                        其他担保
+                        <%}%>
+                    </em>
+                </li>
+                <li>
+                    <span>债务人类型:</span>
+                    <%if(data.ExtInfo.DebtorType==1){%>
+                    个人
+                    <%}else if(data.ExtInfo.DebtorType==2){%>
+                    企业
+                    <%}%>
+                </li>
+                <li>
+                    <span>债务人名称:</span><em><%=data.ExtInfo.DebtorName%></em>
+                </li>
+                <li>
+                    <span>债务人联系电话:</span><em><%=data.ExtInfo.DebtorPhone%></em>
+                </li>
+                <li>
+                    <span>债务人联系地址:</span><em><%=data.ExtInfo.DebtorAddress%></em>
+                </li>
+                <li>
+                    <span>债务人证件号:</span><em><%=data.ExtInfo.DebtorCardNO%></em>
+                </li>
+                <li>
+                    <span>债权人类型:</span><em>
+                    <%if(data.ExtInfo.CreditorType==1){%>
+                    个人
+                    <%}else if(data.ExtInfo.CreditorType==2){%>
+                    企业
+                    <%}%>
+                </em>
+                </li>
+                <li>
+                    <span>债权人名称:</span><em><%=data.ExtInfo.CreditorName%></em>
+                </li>
+                <li>
+                    <span>债权人联系电话:</span><em><%=data.ExtInfo.CreditorPhone%></em>
+                </li>
+                <li>
+                    <span>债权人联系地址:</span><em><%=data.ExtInfo.CreditorAddress%></em>
+                </li>
+                <li>
+                    <span>债权人证件号:</span><em><%=data.ExtInfo.CreditorCardNO%></em>
+                </li>
+
+            <%}%>
+        </ul>
+        <div class="problem-info-down hide">
+            <i class="problem-down-ico"></i>
+            <a herf="javascritp:;">抵押凭证.txt</a>
+        </div>
+    </div>
+    <div class="problem-chart hide">
+        <i class="chart-ico"></i>
+        <span>跟Ta聊一聊</span>
+    </div>
+    <div class="problem-people hide">
+        <div class="problem-people-txt">
+            <span>已有260人报名20人被查看</span>
+            <a href="javascript:;" class="problem-people-btns">查看报名者</a>
+        </div>
+        <div class="problem-people-pic">
+            <img src="/images/member-pic.png"/>
+            <img src="/images/member-pic.png"/>
+            <img src="/images/member-pic.png"/>
+            <img src="/images/member-pic.png"/>
+            <img src="/images/member-pic.png"/>
+            <img src="/images/member-pic.png"/>
+        </div>
+    </div>
+</script>
+
+<script type="text/html" id="tpl-answer">
+    <div class="problem-answer <%if(data[0].IsBest==false){%>hide<%}%>" id="good-answer">
+        <h4>最佳答案</h4>
+        <div class="problem-txt problem-nobg">
+            <img src="<%=data[0].MemberInfo.Avatar%>">
+            <div class="problem-des-txt">
+                <em><%=data[0].MemberInfo.NickName%></em><%if(data[0].MemberInfo.WorkYear!==0){%><i>执业<%=data[0].MemberInfo.WorkYear%>年</i><%}%>
+                <span>医师</span>
+            </div>
+            <div class="problem-like" data-id="<%=data[0].ID%>">
+                <i <%if(data[0].IsClickedGood==true){%>
+                class="problem-like-ico1-active"
+                <%}%>></i>
+                <span class="clickCount"><%=data[0].ClickGoodCount%></span>
+            </div>
+        </div>
+        <div class="problem-article">
+            <p><%=data[0].Memo%></p>
+        </div>
+    </div>
+    <div class="problem-answer" id="problem-answer">
+        <h4>全部答案</h4>
+        <ul class="problem-answer-menu" >
+            <% for(var i=0;i<data.length;i++){%>
+            <li class=problem-good-item>
+                <div class="problem-txt problem-nobg">
+                    <img src="<%=data[i].MemberInfo.Avatar%>">
+                    <div class="problem-des-txt">
+                        <em><%=data[i].MemberInfo.NickName%></em><%if(data[i].MemberInfo.WorkYear!==0){%><i>执业<%=data[i].MemberInfo.WorkYear%>年</i><%}%>
+                        <span>医师</span>
+                    </div>
+                    <div class="problem-like" data-id="<%=data[i].ID%>">
+                        <i <%if(data[i].IsClickedGood==true){%>
+                        class="problem-like-ico1-active"
+                        <%}%>></i>
+                        <span class="clickCount"><%=data[i].ClickGoodCount%></span>
+                    </div>
+                </div>
+                <div class="problem-article">
+                    <p><%=data[i].Memo%></p>
+                    <%if(data[0].IsBest==false && data.memberId==data.ID){%>
+                    <span data-id="<%=data[i].ID%>" class="set-answer">设为最佳答案</span>
+                    <%}%>
+                </div>
+            </li>
+            <%}%>
+        </ul>
+    </div>
+</script>
+</body>
+<script src="/scripts/lib/require.js" data-main="/scripts/modules/home/detail.js"></script>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <link rel="stylesheet" href="/styles/reset.css"/>
+    <link rel="stylesheet" href="/styles/main.css"/>
+    <title>账本详情</title>
+    <script type="text/javascript" src="/scripts/component/mobilePublic.js"></script>
+</head>
+<body>
+<div id="member-cont">
+</div>
+<div class="member-list">
+    <ul>
+        <li id="wholeMember">
+            <span>全部成员 </span>
+            <i class="books-arrow"></i>
+        </li>
+        <li id="JsUpateName">
+            <span>账本名称</span>
+            <i class="books-arrow"></i>
+            <em id="JsNoteName"></em>
+        </li>
+        <li id="JsRootSetting">
+            <span>权限设置</span>
+            <i class="books-arrow"></i>
+        </li>
+        <li>
+            <span>置顶账本</span>
+            <div class="checkbox">
+                <input type="checkbox"  id="ckTop" />
+                <label></label>
+            </div>
+        </li>
+    </ul>
+    <div class="memberBtns">
+        <a href="javascript:;" class="member-btn">删除并退出</a>
+    </div>
+</div>
+<script type="text/html" id="tpl-member">
+    <ul>
+        <% for(var i=0;i<data.length;i++){%>
+        <li class="jsRoot">
+            <img src="<%=data[i].Avatar%>" />
+            <span><%=data[i].NickName%></span>
+        </li>
+        <%}%>
+        <li class="member-item-more">
+            <a href="/shareBook/cateMember.html?bookId=<%=data.bookId%>">
+                <span>+</span>
+            </a>
+        </li>
+    </ul>
+</script>
+<script src="/scripts/lib/require.js" data-main="/scripts/modules/shareBook/bookDetail.js"></script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <link rel="stylesheet" href="/styles/reset.css"/>
+    <link rel="stylesheet" href="/styles/main.css"/>
+    <script type="text/javascript" src="/scripts/component/mobilePublic.js"></script>
+    <title>名片预览</title>
+</head>
+<body>
+    <section id="personCard-cont">
+    </section>
+    <script type="text/html" id="tpl-personCard">
+        <div class="personCard-msg clearfix">
+            <div class="card-info fl">
+                <i class="card-ico-dot"></i>
+                <h4>个人名片</h4>
+                <img src="<%=data.Avatar%>"/>
+            </div>
+            <div class="card-info-txt fl">
+                <span class="card-info-name"><%=data.NickName%></span>
+                <ul class="card-info-menu">
+                    <li>
+                        <i class="card-ico1"></i><span><%=data.IdentityName%></span>
+                    </li>
+                    <li>
+                        <i class="card-ico2"></i><span><%=data.WorkYear%>年执业经验</span>
+                    </li>
+                    <li>
+                        <i class="card-ico3"></i><span><%=data.CityName%></span>
+                    </li>
+                    <li>
+                        <i class="card-ico4"></i><span><%=data.UnitName%></span>
+                    </li>
+                </ul>
+                <h5>擅长领域</h5>
+                <ul class="card-info-tag">
+                    <%for(var i=0;i<data.Tags.length;i++){%>
+                        <li><%=data.Tags[i].Name%></li>
+                    <%}%>
+                </ul>
+            </div>
+        </div>
+        <div class="personCard-list">
+            <i class="card-ico-dot"></i>
+            <h4>联系方式</h4>
+            <ul class="personCard-list-menu">
+                <li>
+                    <span>邮箱：</span>
+                    <em><%=data.Email%></em>
+                </li>
+                <li>
+                    <span>手机号码：</span>
+                    <em><%=data.Phone%></em>
+                </li>
+                <li>
+                    <span>工作单位联系方式：</span>
+                    <em><%=data.UnitPhone%></em>
+                </li>
+                <li>
+                    <span>常驻地区：</span>
+                    <em><%=data.ProvinceName%>&nbsp;<%=data.CityName%>&nbsp;<%=data.CountyName%></em>
+                </li>
+            </ul>
+        </div>
+        <div class="personCard-list">
+            <i class="card-ico-dot"></i>
+            <h4>教育背景</h4>
+            <ul class="personCard-list-menu">
+                <li>
+                    <span>毕业院校：</span>
+                    <em><%=data.School%></em>
+                </li>
+                <li>
+                    <span>学历：</span>
+                    <em><%=data.DegreeName%></em>
+                </li>
+                <li>
+                    <span>专业：</span>
+                    <em><%=data.Major%></em>
+                </li>
+            </ul>
+        </div>
+        <div class="personCard-list">
+            <i class="card-ico-dot"></i>
+            <h4>个人简介</h4>
+            <textarea class="personCar-text" readonly="readonly"><%=data.Memo%></textarea>
+        </div>
+        <div class="foot-card">
+            <a href="#">+关注</a>
+            <a href="#">聊一聊</a>
+        </div>
+    </script>
+    <script type="text/javascript" src="/scripts/lib/require.js" data-main="/scripts/modules/person/personCard.js"></script>
+</body>
+</html>

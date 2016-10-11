@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <link rel="stylesheet" href="/styles/reset.css"/>
+    <link rel="stylesheet" href="/styles/main.css"/>
+    <script type="text/javascript" src="/scripts/component/mobilePublic.js"></script>
+</head>
+<body>
+<header id="header">
+    <i class="back-ico"  onclick="javascript:history.back()"></i>
+    <h2>微信添加</h2>
+</header>
+<section id="weChart">
+    <img src="/images/wechart.png"/>
+    <span>微信扫码即可加入</span>
+    <em>无法扫描？</em>
+    <span>发送邀请链接给微信好友，验证即可加入</span>
+    <input type="button" value="复制链接" class="member-btn" onclick="copyurl()"/>
+</section>
+<script>
+    function copyurl()
+    {
+        var clipBoardContent="我给您推荐的网址: \r\n";
+        strHref = window.location.href;
+//strUrl = strHref.split("?");
+        clipBoardContent += strHref;
+        if (window.clipboardData){
+            if(window.clipboardData.setData("Text",clipBoardContent)){
+                alert('链接已复制');
+            }
+        }
+        else{
+            alert('您使用的浏览器不支持此功能，请到地址栏复制链接');
+        }
+    }
+</script>
+</body>
+</html>

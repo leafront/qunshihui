@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <link rel="stylesheet" href="/styles/reset.css"/>
+    <title>法律法规列表</title>
+    <script type="text/javascript" src="/scripts/component/mobilePublic.js"></script>
+    <style>
+        input[type="button"], input[type="submit"], input[type="reset"] {
+            -webkit-appearance: none;
+        }
+
+        body {
+            background-color: #f3f3f3;
+        }
+        .searchWrap {
+            background-color: #000;
+            margin: 0;
+            padding: 8px 15px;
+            padding-right: 50px;
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            box-sizing:border-box;
+        }
+
+        .searchInput {
+            background-color: #fff;
+            color: #8e8e8e;
+            border: 1px solid #bbbbbb;
+            width: 90%;
+            margin-left:8%;
+            height: 31px;
+            line-height: 30px;
+            text-align: left;
+            padding: 5px;
+            font-size: 14px;
+            font-family: 'Microsoft YaHei';
+            background-repeat: no-repeat;
+            background-size: 32px 32px;
+        }
+
+        .searchImg {
+            position: absolute;
+            right: 10px;
+            top: 8px;
+            height: 32px;
+        }
+
+        .content {
+            max-width: 600px;
+            height: 100%;
+            margin: 0 auto;
+            font-family: 'Microsoft YaHei';
+        }
+
+        .bordersytle {
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            border-radius: 5px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            vertical-align: middle;
+        }
+
+        .container {
+            margin-top: 6px;
+        }
+
+        .wenshuclass {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+
+
+        .wenshuclass li {
+            border: none;
+            font-size: 14px;
+            color: #eaf3fe;
+            background-color: #2487f7;
+            border-bottom: 1px solid #5aa8ff;
+            height:2rem;
+            line-height:2rem;
+            overflow:hidden;
+        }
+
+        .wenshuclass li.current {
+            font-size: 16px;
+            background-color: #f3f3f3;
+            color: #4dbbd4;
+        }
+
+
+        .titleItem {
+            margin: 0 0.25rem 0.25rem 0.25rem;
+            border: 1px solid #dedfe0;
+            background-color: #fff;
+            color: #333;
+            font-size: 0.7rem;
+            padding: 0.25rem;
+        }
+
+        .titleItem a {
+            color: #333;
+            font-size: 0.8rem;
+            text-decoration: none;
+        }
+        .consult-moreData,
+        .no-moreData {
+            height: 1.375rem;
+            line-height: 1.375rem;
+            font-size: 14px;
+            color: #333;
+            border-radius: 0.25rem;
+            background: white;
+            text-align: center;
+        }
+        #header {
+            width: 100%;
+            height: 2.2rem;
+            position: fixed;
+            background: #333;
+            line-height: 2.2rem;
+            top: 0;
+            left: 0;
+            text-align: center;
+            z-index: 99999;
+        }
+        #header h2 {
+            color: #fff;
+            font-size: 0.9rem;
+        }
+        #header .back-ico {
+            background: url(/images/home-ico.png) no-repeat -0.3rem -7.6rem;
+            background-size: 18.75rem auto;
+            display: block;
+            width: 1rem;
+            height: 1rem;
+            position: absolute;
+            left: 1rem;
+            top: 0.5rem;
+        }
+        .cotainer-menu {
+            width: 76px;
+            float: left;
+            position: fixed;
+            top: 55px;
+            left: 0;
+            height: 25rem;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div id="listContainer">
+    </div>
+    <div class="consult-moreData hide">加载更多数据</div>
+    <div class="no-moreData hide">没有更多数据</div>
+</div>
+<script id="itemTplItem" type="text/html">
+    <%for(var i=0;i<data.length;i++){%>
+        <div class="titleItem">
+            <a style="color:#2487f7" href="/Tools/LawDetail.html?ItemID=<%=data[i].ItemID%>&LawID=<%=data[i].LawID%>">
+                <%=data[i].LawName%>
+            </a>
+            <p class="lawUnit">
+                <%=data[i].UnitName%>
+            </p>
+            <p style="margin:3px 0px;">
+                发布时间 <%=data[i].PublishTime%>
+            </p>
+            <p style="margin:3px 0px;">
+                施行时间 <%=data[i].ExecuteTime%>
+            </p>
+            <a href="ViewLawDoc/<%=ID%>">
+                <%=data[i].Title%>
+            </a>
+            <%=data[i].Title1%>
+            <br />
+            <%=#data[i].Memo%>
+        </div>
+    <%}%>
+</script>
+<script src="/scripts/lib/require.js" data-main="/Scripts/modules/tools/lawSearch.js"></script>
+</body>
+</html>

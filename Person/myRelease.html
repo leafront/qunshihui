@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <link rel="stylesheet" href="/styles/reset.css"/>
+    <link rel="stylesheet" href="/styles/main.css"/>
+    <title>我的发布</title>
+    <script type="text/javascript" src="/scripts/component/mobilePublic.js"></script>
+</head>
+<body>
+<section id="release-cont">
+    <ul class="release-menu" id="consultList-menu">
+        <li data-status="1" href="myRelease.html?statues=1">
+            <a href="javascript:;">已发布</a>
+        </li>
+        <li data-status="0" href="myRelease.html?statues=0">
+            <a href="javascript:;">待发布</a>
+        </li>
+    </ul>
+    <div class="consultList-tab release-tab" id="consultTab">
+    </div>
+    <div class="consult-moreData hide">加载更多数据</div>
+    <div class="no-moreData hide">没有更多数据</div>
+</section>
+<script type="text/html" id="tpl-release-tab">
+    <% for(var i=0;i<data.length;i++){%>
+        <div class="consultList-item release-item">
+            <div class="release-des">
+                <h2><%=data[i].Title%></h2>
+                <p class="release-list-p"><%=data[i].Memo%></p>
+            </div>
+            <%if(data[0].Status==0){%>
+                <div class="release-statue">
+                    <ul class="release-statue-menu">
+                        <li>￥<%=data[i].TotalFee%></li>
+                        <li class="cancelRelease" data-id="<%=data[i].ID%>">取消发布</li>
+                        <li class="goPay" data-id="<%=data[i].ID%>">去支付</li>
+                    </ul>
+                </div>
+            <%}%>
+        </div>
+    <%}%>
+</script>
+
+<script src="/scripts/lib/require.js" data-main="/scripts/modules/person/release.js"></script>
+</body>
+</html>

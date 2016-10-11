@@ -1,0 +1,175 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>诉讼费计算</title>
+    <script type="text/javascript" src="/scripts/component/mobilePublic.js"></script>
+    <style type="text/css">
+        body {
+            background-color: #f5f5f5;
+            padding: 0px;
+            margin: 0px;
+            font-family:Arial, "Microsoft YaHei", "微软雅黑", sans-serif;
+        }
+        h1,h2,h3,h4,h5,h6,select,input{
+            font-family:Arial, "Microsoft YaHei", "微软雅黑", sans-serif;
+        }
+        input,select{
+            outline:none;
+        }
+        #container {
+            padding-top: 30px;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+            #container .item {
+                margin-top: 20px;
+            }
+
+            #container .item_button {
+                margin-top: 30px;
+                margin-bottom: 30px;
+            }
+
+            #container .input {
+                width: 100%;
+                height: 50px;
+                font-size: 24px;
+                padding-left: 8px;
+                border: 1px solid #e2e2e2;
+            }
+
+        .btn {
+            display: inline-block;
+            padding: 6px 12px;
+            margin-bottom: 0;
+            font-size: 14px;
+            font-weight: normal;
+            line-height: 1.42857143;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            -ms-touch-action: manipulation;
+            touch-action: manipulation;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            background-image: none;
+            border: 1px solid transparent;
+            border-radius: 4px;
+        }
+
+        .mybtn {
+            color: #fff;
+            background-color: #2587f6;
+            font-size: 24px;
+        }
+
+            .mybtn:hover {
+                color: #fff;
+            }
+
+        .result_title {
+            color: #2587f6;
+            text-align: center;
+        }
+
+        .title_split {
+            border-color: #d7d7d7;
+            margin-top: 0;
+        }
+        #header {
+            width: 100%;
+            height: 2.2rem;
+            position: fixed;
+            background: #333;
+            line-height: 2.2rem;
+            top: 0;
+            left: 0;
+            text-align: center;
+            z-index: 99999;
+        }
+
+        #header h2 {
+            color: #fff;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        body {
+            padding-top: 2.2rem;
+        }
+
+        .back-ico {
+            background: url(/images/home-ico.png) no-repeat -0.3rem -7.6rem;
+            background-size: 18.75rem auto;
+            display: block;
+            width: 1rem;
+            height: 1rem;
+            position: absolute;
+            left: 1rem;
+            top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+
+        <div class="item">
+            <select class="input" id="bigType"></select>
+        </div>
+
+        <div class="item">
+            <select class="input" id="smallType">
+                <option>请选择类型</option>
+            </select>
+        </div>
+
+        <div class="item" id="subItem" style="display:none;">
+            <select class="input" id="subType"></select>
+        </div>
+
+        <div class="item" id="moneyItem" style="display:none;">
+            <p><label><span>是否有资金</span> <input type="checkbox" id="enableMoney" /></label>  </p>
+            <input type="text" class="input" placeholder="请输入资金" id="money" />
+        </div>
+
+        <div class="item_button">
+            <button type="button" class="item_button btn mybtn" id="dealBtn" style="width:100%">计 算</button>
+        </div>
+
+        <div id="result" style="display:none;">
+            <h3 class="result_title">费用</h3>
+            <hr class="title_split" />
+            <p id="c_result">200元 ~ 200元</p>
+
+            <h3 class="result_title">计算公式</h3>
+            <hr class="title_split" />
+            <p id="c_desc">每件收取200元</p>
+        </div>
+        <br /><br />
+    </div>
+
+    <script src="/scripts/lib/jquery-2.2.1.min.js"></script>
+    <script src="/scripts/modules/tools/legalfree.js"></script>
+    <script>
+        function requestUrl(name){
+            var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+            var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if(r!=null)return  unescape(r[2]); return null;
+        }
+        var header=requestUrl('header');
+        if(header=='no'){
+            $("#header").hide();
+            document.body.style.paddingTop=0;
+        }
+    </script>
+</body>
+</html>

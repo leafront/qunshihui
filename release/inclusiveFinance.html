@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <link rel="stylesheet" href="/styles/reset.css"/>
+    <link rel="stylesheet" href="/styles/main.css"/>
+    <title>发布</title>
+    <script type="text/javascript" src="/scripts/component/mobilePublic.js"></script>
+</head>
+<body>
+<section id="question-cont">
+    <div class="ques-select">
+        <span id="header-tit">普惠金融</span>
+    </div>
+    <div class="ques-select ques-select-tit">
+        <input id="header-select-tit"  placeholder="请填写标题"/>
+    </div>
+    <div class="ques-law">
+        <p>
+            <label><em>*</em>借款金额:</label>
+            <input type="number" maxLength="4" id="totalFee" required class="quwsLaw-txt"/><span>元</span>
+            <label><em>*</em>借款用途:</label>
+            <input maxLength="15" type="text" maxlength="10" id="purpose" required  class="quwsLaw-txt quwlaw-user"/>
+        </p>
+        <p>
+            <label><em>*</em>利率范围:</label>
+            <input id="rateRange" maxlength="10" type="text" class="quwsLaw-txt quwsLaw-txt1"/>
+            <label class="quesLaw-month"><em>*</em>借款期限:</label>
+            <input maxLength="3" type="number" required id="borrowPeriod" class="quwsLaw-txt"/><span>/月</span>
+        </p>
+        <p>
+            <label><em>*</em>是否有群师推荐:</label><i class="ques-checked hasRecommand" data-statue="true"></i><span>是</span>
+            <i class="hasRecommand" data-statue="false"></i><span>否</span>
+        </p>
+        <p>
+            <label><em>*</em>是否有律师担保:</label><i class="ques-checked hasSponsor" data-statue="true"></i><span>是</span>
+            <i class="hasSponsor" data-statue="false"></i><span>否</span>
+        </p>
+        <p>
+            <label><em>*</em>是否提供房产抵押担保:</label><i class="ques-checked hasMortgage" data-statue="true"></i><span>是</span>
+            <i class="hasMortgage" data-statue="false"></i><span>否</span>
+        </p>
+        <span class="quesLaw-des">标记<em>*</em>号项为必填项，其它为选填项</span>
+    </div>
+    <textarea class="ques-txt" placeholder="描述：请简单描述一下您的需求"></textarea>
+    <div class="ques-money">
+        <p><span>所属金额</span><input maxLength="4" readonly class="quesMoney-txt quesMoney-txt1" type="number"/><span>万元</span><em class="quesMonety-desTxt">（请与借款金额一致）</em></p>
+        <p><span>有效期</span><input maxLength="3" class="ques-day" requied type="number"/><span>天</span> </p>
+    </div>
+    <div class="ques-upfile">
+        <input type="file" value="">
+        <span class="quesUpfile-name">上传附件</span>
+    </div>
+    <div class="ques-protocol qesLaw-protocol">
+        <label class="quesLaw-protocal-des"><i class="ques-checked"></i><span>同意平台收取百分之三佣金</span></label>
+    </div>
+    <a href="javascript:;" id="ques-btn" class="member-btn ques-btn">支付佣金并发布</a>
+    <span class="quesLaw-submit-des">有效期内交易未成功，可全额退还佣金</span>
+</section>
+</body>
+<script src="/scripts/lib/require.js" data-main="/scripts/modules/home/inclusiveFinance.js"></script>
+</html>

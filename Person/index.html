@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <link rel="stylesheet" href="/styles/reset.css"/>
+    <link rel="stylesheet" href="/styles/main.css"/>
+    <title>个人中心</title>
+    <script type="text/javascript" src="/scripts/component/mobilePublic.js"></script>
+</head>
+<body class="bgf5">
+    <div id="header-person">
+    </div>
+    <section id="order-cont">
+        <div class="order-detail">
+            <h3>我的订单</h3>
+            <a href="/myOrder/index.html?state=0">查看全部订单</a>
+            <i class="order-arrow-ico"></i>
+        </div>
+        <ul class="order-menu">
+            <li>
+                <a href="/myOrder/index.html?statues=0">
+                    <i class="order-ico0"></i>
+                    <span>全部</span>
+                </a>
+            </li>
+            <li>
+                <a href="/myOrder/index.html?statues=1">
+                    <i class="order-ico1"></i>
+                    <span>待付款</span>
+                </a>
+            </li>
+            <li>
+                <a href="/myOrder/index.html?statues=2">
+                    <i class="order-ico2"></i>
+                    <span>处理中</span>
+                </a>
+            </li>
+            <li>
+                <a href="/myOrder/index.html?statues=3">
+                    <i class="order-ico3"></i>
+                    <span>待评价</span>
+                </a>
+            </li>
+            <li>
+                <a href="/myOrder/index.html?statues=5">
+                    <i class="order-ico5"></i>
+                    <span>退款/售后</span>
+                </a>
+            </li>
+        </ul>
+        <div class="person-btns">
+            <ul class="personBtns-menu">
+                <li>
+                    <a href="/person/myCollection.html">
+                        <i class="btns-ico1"></i>
+                        <span>我的收藏</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/person/myRelease.html">
+                        <i class="btns-ico2"></i>
+                        <span>我的发布</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/person/attend.html">
+                        <i class="btns-ico3"></i>
+                        <span>我的参与</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <i class="btns-ico4"></i>
+                        <span>我的联系人</span>
+                    </a>
+                </li>
+                <li>
+                    <i class="btns-ico5"></i>
+                    <span>时间日程管理</span>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <i class="btns-ico6"></i>
+                        <span>健康管理</span>
+                    </a>
+                </li>
+                <li>
+                    <i class="btns-ico7"></i>
+                    <span>知识管理</span>
+                </li>
+                <li>
+                    <i class="btns-ico8"></i>
+                    <span>财富管理</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <footer id="footer">
+        <ul class="footer-menu">
+            <li>
+                <a href="/">
+                    <i class="btn_01"></i>
+                    <span>首页</span>
+                </a>
+            </li>
+            <li>
+                <a href="/category/index.html">
+                    <i class="btn_04"></i>
+                    <span>分类</span>
+                </a>
+            </li>
+            <li>
+                <a href="/map/index.html">
+                    <i class="btn_03"></i>
+                    <span>法商地图</span>
+                </a>
+            </li>
+            <li>
+                <a href="/Tools/index.html">
+                    <i class="btn_02"></i>
+                    <span>工具箱</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="/person/index.html">
+                    <i class="btn_05"></i>
+                    <span>我</span>
+                </a>
+            </li>
+        </ul>
+    </footer>
+    <script type="text/html" id="tpl-getInfo">
+        <a href="/person/set.html?memberId=<%=memberId%>" class="person-set">设置</a>
+        <div class="header-pic">
+            <a href="javascript:;" id="person-member">
+                <img src="<%=data.Avatar%>"/>
+                <em><%=data.NickName%></em>
+                <%if(memberId==0){%><i>登录/注册</i><%}else if(data.IdentityStatus==0){%>
+                    <i>未认证</i>
+                <%}else if(data.IdentityStatus==1){%>
+                    <i>待审核</i>
+                <%}else if(data.IdentityStatus==2){%>
+                    <i>已认证</i>
+                <%}else if(data.IdentityStatus==3){%>
+                    <i>未通过</i>
+                <%}%>
+            </a>
+        </div>
+        <ul class="person-menu">
+            <li>
+                <a href="javascript:;">
+                    <em>余额</em>
+                    <span><%=data.Money%></span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <em>积分</em>
+                    <span><%=data.Integral%></span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <em>优惠券</em>
+                    <span>0</span>
+                </a>
+            </li>
+        </ul>
+    </script>
+    <script src="/scripts/lib/require.js" data-main="/scripts/modules/person/index.js"></script>
+</body>
+</html>

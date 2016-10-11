@@ -1,0 +1,224 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <link rel="stylesheet" href="/styles/reset.css"/>
+    <link rel="stylesheet" href="/styles/main.css"/>
+    <title>工具箱</title>
+    <script type="text/javascript" src="/scripts/component/mobilePublic.js"></script>
+    <style>
+        input[type="button"], input[type="submit"], input[type="reset"] {
+            -webkit-appearance: none;
+        }
+        body {
+            background-color: #f3f3f3;
+            padding: 0;
+            margin: 0;
+            font-family: 'Microsoft YaHei';
+        }
+        .searchWrap {
+            background-color: #000;
+            margin: 0;
+            padding: 8px 15px;
+            padding-right: 50px;
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            box-sizing:border-box;
+        }
+
+        .searchInput {
+            background-color: #fff;
+            color: #8e8e8e;
+            border: 1px solid #bbbbbb;
+            width: 90%;
+            margin-left:8%;
+            height: 31px;
+            line-height: 30px;
+            text-align: left;
+            padding: 5px;
+            font-size: 14px;
+            font-family: 'Microsoft YaHei';
+            background-repeat: no-repeat;
+            background-size: 32px 32px;
+        }
+
+        .searchImg {
+            position: absolute;
+            right: 10px;
+            top: 8px;
+            height: 32px;
+        }
+
+        .content {
+            max-width: 600px;
+            height: 100%;
+            margin: 0 auto;
+            font-family: 'Microsoft YaHei';
+        }
+
+        .bordersytle {
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            border-radius: 5px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            vertical-align: middle;
+        }
+
+        .container {
+            margin-top: 6px;
+        }
+
+        .wenshuclass {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+
+
+        .wenshuclass li {
+            border: none;
+            font-size: 14px;
+            color: #eaf3fe;
+            background-color: #2487f7;
+            border-bottom: 1px solid #5aa8ff;
+            height:2rem;
+            line-height:2rem;
+            overflow:hidden;
+        }
+
+        .wenshuclass li.current {
+            font-size: 16px;
+            background-color: #f3f3f3;
+            color: #4dbbd4;
+        }
+
+
+        .titleItem {
+            margin: 0 0.25rem 0.25rem 0.25rem;
+            border: 1px solid #dedfe0;
+            background-color: #fff;
+            color: #333;
+            font-size: 0.7rem;
+            padding: 0.25rem;
+        }
+
+        .titleItem a {
+            color: #333;
+            font-size: 0.8rem;
+            text-decoration: none;
+        }
+
+        .moredata, .nodata {
+            padding: 5px;
+            background-color: #fff;
+            text-align: center;
+            color: #333;
+            font-size: 14px;
+            margin: 0 7px 11px 10px;
+        }
+        .back-ico{
+            background:url(/images/home-ico.png) no-repeat -0.3rem -7.6rem;
+            background-size:18.75rem auto;
+            display:block;
+            width:1rem;
+            height:1rem;
+            position:absolute;
+            left:0.5rem;
+            top:0.5rem;
+        }
+        .cotainer-menu {
+            width: 76px;
+            float: left;
+            position: fixed;
+            top: 55px;
+            left: 0;
+            height: 25rem;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body class="bgwhite">
+<section id="tool-cont">
+    <ul class="tool-menu">
+        <li>
+            <a href="/Tools/law.html">
+            <i class="ico1"></i>
+            <span>法规查询</span>
+            </a>
+        </li>
+        <li>
+            <a href="/Tools/judgment.html">
+            <i class="ico2"></i>
+            <span>裁判文书</span>
+            </a>
+        </li>
+        <li>
+            <a href="/Tools/lawDoc.html">
+            <i class="ico3"></i>
+            <span>合同文书</span>
+            </a>
+        </li>
+        <li>
+            <a href="/Tools/legalfree.html">
+                <i class="ico4"></i>
+                <span>诉讼费计算</span>
+            </a>
+        </li>
+        <li>
+            <a href="/Tools/calc.html">
+                <i class="ico5"></i>
+                <span>计算器</span>
+            </a>
+        </li>
+        <li id="tools-notes">
+            <i class="ico6"></i>
+            <span>共享账本</span>
+        </li>
+    </ul>
+</section>
+<footer id="footer">
+    <ul class="footer-menu">
+        <li>
+            <a href="/">
+                <i class="btn_01"></i>
+                <span>首页</span>
+            </a>
+        </li>
+        <li>
+            <a href="/category/index.html">
+                <i class="btn_04"></i>
+                <span>分类</span>
+            </a>
+        </li>
+        <li>
+            <a href="/map/index.html">
+                <i class="btn_03"></i>
+                <span>法商地图</span>
+            </a>
+        </li>
+        <li class="active">
+            <a href="/Tools/index.html">
+                <i class="btn_02"></i>
+                <span>工具箱</span>
+            </a>
+        </li>
+        <li>
+            <a href="/person/index.html">
+                <i class="btn_05"></i>
+                <span>我</span>
+            </a>
+        </li>
+    </ul>
+</footer>
+<script src="/scripts/lib/require.js" data-main="/scripts/modules/tools/tool.js"></script>
+</body>
+</html>

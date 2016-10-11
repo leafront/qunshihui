@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <link rel="stylesheet" href="/styles/reset.css"/>
+    <link rel="stylesheet" href="/styles/main.css"/>
+    <title>列表</title>
+    <script type="text/javascript" src="/scripts/component/mobilePublic.js"></script>
+</head>
+<body>
+<div class="header-search">
+    <form action="/release/index.html" enctype="application/x-www-form-urlencoded" method="get">
+        <input type="hidden" name="pid" value="" id="release-pid"/>
+        <input type="search" name="search" class="consult-search" placeholder="搜索问题、关键字" />
+    </form>
+    <div id="header-ques-btn">
+        <em class="header-ques-ico"></em>
+        <span class="header-ques-txt">发布</span>
+    </div>
+</div>
+<section id="consult-cont">
+    <ul class="consultList-menu" id="consultList-menu">
+    </ul>
+    <div class="consultList-tab" id="consultTab">
+    </div>
+    <div class="consult-moreData hide">加载更多数据</div>
+    <div class="no-moreData hide">没有更多数据</div>
+</section>
+<script type="text/html" id="tpl-consultMenu">
+        <li class="active" id="consult-whole">
+            <a href="javascript:;">全部</a>
+        </li>
+        <% for(var i=0;i<data.length;i++){%>
+            <li data-id="<%=data[i].ID%>"><a href="javascript:;"><%=data[i].Name%></a></li>
+        <%}%>
+</script>
+<script type="text/html" id="tpl-consultTab">
+    <% for(var i=0;i<data.length;i++){%>
+        <div class="consultList-item" data-id="<%=data[i].ID%>">
+            <%if(data[i].Title!==''){%><h3><%=data[i].Title%></h3><%}%>
+            <p><%=data[i].Memo%></p>
+            <div class="problem-pic">
+                <i class="problem-ico1"></i>
+                <span><%=data[i].ModuleName%></span>
+                <% if(data[i].CityName!=="" && data[i].HideArea==false){%>
+                    <i class="problem-ico4"></i>
+                    <em><%=data[i].CityName%></em>
+                <%}%>
+                <%if(data[i].TotalFee!==0 && data[i].TotalFee!==""){%><strong>￥<%=(data[i].TotalFee)/100%></strong><%}%>
+            </div>
+            <div class="consultList-txt">
+                <img src="<%=data[i].MemberInfo.Avatar%>"/>
+                <span><%=data[i].MemberInfo.NickName%></span>
+                <time><%=data[i].PublishTime%></time>
+                <i class="ico1"></i>
+                <em><%=data[i].CommentCount%></em>
+                <i data-id="<%=data[i].ID%>" class="<%if(data[i].IsCollected==true){%>ico2 ico2-active<%}else{%>ico2<%}%>"></i>
+                <em class="collectCount"><%=data[i].CollectCount%></em>
+            </div>
+            <% if(data[i].Status==2){%><span class="consulte-ques">已解决</span><%}%>
+        </div>
+    <%}%>
+</script>
+</body>
+<script src="/scripts/lib/require.js" data-main="/scripts/modules/home/list.js"></script>
+</html>

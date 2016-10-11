@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <link rel="stylesheet" href="/styles/reset.css"/>
+    <link rel="stylesheet" href="/styles/main.css"/>
+    <title>发布</title>
+    <script type="text/javascript" src="/scripts/component/mobilePublic.js"></script>
+</head>
+<body>
+<section id="question-cont">
+    <div class="ques-select">
+        <span id="header-tit">诉讼仲裁</span>
+    </div>
+    <div class="ques-select ques-select-tit">
+        <input type="text" id="header-select-tit" placeholder="请填写标题"/>
+    </div>
+    <textarea class="ques-txt" placeholder="描述：请简单描述一下您的需求"></textarea>
+    <div class="ques-cat" id="ques-cat">
+    </div>
+    <div class="ques-cost">
+        <label>选择律师费区间</label>
+        <button id="minMoney">律师费区间</button>
+    </div>
+    <div class="ques-protocol">
+        <label><i id="needLitigationFund" class="ques-checked"></i><span>需要诉讼保全担保</span></label>
+        <label><i id="needLitigationBond"></i><span>需要诉讼金融</span></label>
+        <label><i id="hideArea" class="ques-checked"></i><span>隐藏位置</span></label>
+        <label><i id="hideName"></i><span>匿名发布</span></label>
+        <div class="ques-example">
+            <i class="ques-example-ico"></i>
+            <a href="/release/example.html" id="ques-demo">示范</a>
+        </div>
+    </div>
+    <div class="publishcase-area hide">
+        <ul id="publishcase-menu">
+            <li>0~3000</li>
+            <li>3001~5000</li>
+            <li>5001~10000</li>
+            <li>10001~50000</li>
+            <li>50000以上</li>
+        </ul>
+    </div>
+    <div class="mask hide"></div>
+    <div class="ques-areaId">
+        <select name="provinceId" class="ques-area" id="provinceId" ></select>
+        <select name="cityId" class="ques-area" id="cityId" >
+        </select>
+        <select name="countyId" class="ques-area" id="countyId">
+        </select>
+    </div>
+    <a href="javascript:;" id="ques-btn" class="member-btn ques-btn">提交</a>
+</section>
+<script type="text/html" id="tpl-quesCat">
+    <h4><i class="ques-ico1"></i>选择分类</h4>
+    <ul class="quesCat-menu social-menu">
+        <% for(var i=0;i<data.length;i++){%>
+        <li data-id="<%=data[i].ID%>"<% if(i==0){%>class="active"<%}%>><%=data[i].Name%></li>
+        <%}%>
+    </ul>
+</script>
+</body>
+<script src="/scripts/lib/require.js" data-main="/scripts/modules/home/publishCase.js"></script>
+</html>

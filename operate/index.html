@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <link rel="stylesheet" href="/styles/reset.css"/>
+    <link rel="stylesheet" href="/styles/main.css"/>
+    <title>企业运营</title>
+    <script type="text/javascript" src="/scripts/component/mobilePublic.js"></script>
+</head>
+<body class="bgwhite">
+    <section id="operate-cont">
+    </section>
+    <script type="text/html" id="tpl-operate-cont">
+        <ul class="operate-menu">
+            <% var i;var len=data.length;for(i=0;i<len;i++){%>
+                <li><a href="/operate/list.html?id=<%=data[i].ID%>"><i class="ico<%=i+1%>"></i><span><%=data[i].Name%></span></a></li>
+            <%}%>
+        </ul>
+    </script>
+<script type="text/javascript" src="/scripts/lib/require.js" data-main="/scripts/modules/operate/index.js"></script>
+</body>
+</html>

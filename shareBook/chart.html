@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <link rel="stylesheet" href="/styles/reset.css"/>
+    <link rel="stylesheet" href="/styles/main.css"/>
+    <title>收支统计表</title>
+    <script type="text/javascript" src="/scripts/component/mobilePublic.js"></script>
+</head>
+<body class="statistics-bg">
+    <header id="header">
+        <i class="back-ico" onclick="javascript:history.back()"></i>
+        <h2 class="header-tit">2016</h2>
+    </header>
+    <section id="maspaint-cont">
+        <div class="chartLine-tit">
+            <h3>收支统计表</h3>
+            <ul class="chartLine-menu">
+                <li>
+                    <i class="chartLine-ico1"></i>
+                    <span>收入</span>
+                </li>
+                <li>
+                    <i class="chartLine-ico2"></i>
+                    <span>支出</span>
+                </li>
+            </ul>
+        </div>
+        <canvas id="chartLine" width="1" height="1"></canvas>
+        <small>月</small>
+        <div class="chartLine-tit">
+            <h3>结余统计表</h3>
+        </div>
+        <canvas id="columnLine" width="1" height="1"></canvas>
+        <small class="columnLine-txt">月</small>
+        <div class="maspaint-down">
+            <a href="javascript:;">附件1：word点击下载</a>
+            <a href="javascript:;">附件1：excel</a>
+        </div>
+    </section>
+    <div class="books-mask">
+    </div>
+    <div class="maspaint-year">
+        <div class="maspaint-year-cont" id="maspaint-wraper">
+            <ul class="maspaint-menu">
+                <li class="active"><a href="javascript:;">2020</a></li>
+                <li><a href="javascript:;">2019</a></li>
+                <li><a href="javascript:;">2018</a></li>
+                <li><a href="javascript:;">2017</a></li>
+                <li><a href="javascript:;">2016</a></li>
+                <li><a href="javascript:;">2015</a></li>
+                <li><a href="javascript:;">2014</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="/scripts/lib/require.js" data-main="/scripts/modules/shareBook/chart.js"></script>
+</html>

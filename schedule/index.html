@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <title>时间日程管理</title>
+    <link rel="stylesheet" href="/styles/reset.css"/>
+    <link rel="stylesheet" href="/styles/main.css"/>
+    <link rel="stylesheet" href="/styles/money.css"/>
+    <script type="text/javascript" src="/scripts/component/mobilePublic.js"></script>
+</head>
+<body>
+<div class="head_top">
+   <strong class="dateTime1">今天▼</strong>
+</div>
+<section class="pt_2rem">
+    <!--<table class="timetable">
+        <thead>
+            <tr>
+                <td class="cff6d48">周日</td>
+                <td>周一</td>
+                <td>周二</td>
+                <td>周三</td>
+                <td>周四</td>
+                <td>周五</td>
+                <td class="cff6d48">周六</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <strong></strong><br/>
+                    <span></span>
+                </td>
+                <td>
+                    <strong></strong><br/>
+                    <span></span>
+                </td>
+                <td>
+                    <strong>1</strong><br/>
+                    <span>廿三</span>
+                </td>
+                <td>
+                    <strong>2</strong><br/>
+                    <span>廿四</span>
+                </td>
+                <td>
+                    <strong>3</strong><br/>
+                    <span>廿五</span>
+                </td>
+                <td>
+                    <strong>4</strong><br/>
+                    <span>廿六</span>
+                </td>
+                <td>
+                    <strong>5</strong><br/>
+                    <span>惊蛰</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>6</strong><br/>
+                    <span>廿八</span>
+                </td>
+                <td>
+                    <strong>7</strong><br/>
+                    <span>廿九</span>
+                </td>
+                <td>
+                    <strong>8</strong><br/>
+                    <span>妇女节</span>
+                </td>
+                <td>
+                    <strong>9</strong><br/>
+                    <span>二月</span>
+                </td>
+                <td>
+                    <strong>10</strong><br/>
+                    <span>龙抬头</span>
+                </td>
+                <td>
+                    <strong>11</strong><br/>
+                    <span>初三</span>
+                </td>
+                <td>
+                    <strong>12</strong><br/>
+                    <span>植树节</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>13</strong><br/>
+                    <span>初五</span>
+                </td>
+                <td>
+                    <strong>14</strong><br/>
+                    <span>初六</span>
+                </td>
+                <td>
+                    <strong>15</strong><br/>
+                    <span>315</span>
+                </td>
+                <td>
+                    <strong>16</strong><br/>
+                    <span>初八</span>
+                </td>
+                <td>
+                    <strong>17</strong><br/>
+                    <span>初九</span>
+                </td>
+                <td>
+                    <strong>18</strong><br/>
+                    <span>初十</span>
+                </td>
+                <td>
+                    <strong>19</strong><br/>
+                    <span>十一</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>20</strong><br/>
+                    <span>春分</span>
+                </td>
+                <td>
+                    <strong>21</strong><br/>
+                    <span>十三</span>
+                </td>
+                <td>
+                    <strong>22</strong><br/>
+                    <span>十四</span>
+                </td>
+                <td>
+                    <strong>23</strong><br/>
+                    <span>十五</span>
+                </td>
+                <td>
+                    <strong>24</strong><br/>
+                    <span>十六</span>
+                </td>
+                <td>
+                    <strong>25</strong><br/>
+                    <span>十七</span>
+                </td>
+                <td>
+                    <strong>26</strong><br/>
+                    <span>十八</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>27</strong><br/>
+                    <span>复活节</span>
+                </td>
+                <td>
+                    <strong>28</strong><br/>
+                    <span>二十</span>
+                </td>
+                <td class="active">
+                    <strong>29</strong><br/>
+                    <span>廿一</span>
+                </td>
+                <td>
+                    <strong>30</strong><br/>
+                    <span>廿二</span>
+                </td>
+                <td>
+                    <strong>31</strong><br/>
+                    <span>廿三</span>
+                </td>
+                <td>
+                    <strong></strong><br/>
+                    <span></span>
+                </td>
+                <td>
+                    <strong></strong><br/>
+                    <span></span>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>-->
+    <ul class="sked">
+        <!--<p>快来记录事件吧!</p>-->
+        <!--<li class="">
+            <em>饭局</em>
+            <div>
+                <strong>出去买点东西</strong><br/>
+                <span>9:00-10:00</span>
+            </div>
+            <b></b>
+        </li>-->
+    </ul>
+    <button class="add_travel">添加<br/>事件</button>
+</section>
+<div id="datePlugin"></div>
+<script src="/scripts/lib/require.js" data-main="/scripts/modules/management/schedule/schedule.js"></script>
+</body>
+</html>

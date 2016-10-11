@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <link rel="stylesheet" href="/styles/reset.css"/>
+    <link rel="stylesheet" href="/styles/main.css"/>
+    <script type="text/javascript" src="/scripts/component/mobilePublic.js"></script>
+    <title>实名认证</title>
+</head>
+<body>
+    <section id="real-cont">
+    </section>
+    <script type="text/html" id="tpl-real-list">
+        <ul class="real-list">
+            <li>
+                <label>真实姓名</label>
+                <input maxlength="8" type="text" id="name" placeholder="<%if(data.RealName!==null){%><%=data.RealName%><%}%>" value="<%if(data.RealName!==null){%><%=data.RealName%><%}%>">
+            </li>
+            <li>
+                <label>身份证号码</label>
+                <input type="number" maxlength="18" id="id" placeholder="<%if(data.RealName!==null){%><%=data.IDCard%><%}%>" value="<%if(data.RealName!==null){%><%=data.IDCard%><%}%>">
+            </li>
+            <li class="identity-photo-h">
+                <div class="identity-upload-info">
+                    <span>手持身份证照片</span>
+                    <button class="real-list-btns" id="chooseImage">+</button>
+                    <div class="CertImage" data-img="<%if(data.IDCardUrl!==''){%><%=data.IDCardUrl%><%}%>">
+                        <%if(data.IDCardUrl!==''){%>
+                        <img src="<%=data.IDCardUrl%>"/>
+                        <%}%>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <em>
+            本公司将会竭力保证您的身份信息安全，仅用于app内部实
+            名认证，请放心填写。
+        </em>
+        <div class="real-pic">
+            <img src="/images/rela.png"/>
+        </div>
+        <div class="perInfo-btn">
+            <a href="javascrit:;">申请认证</a>
+        </div>
+    </script>
+<script type="text/javascript" src="/scripts/lib/require.js"  data-main="/scripts/modules/person/realName.js"></script>
+</body>
+</html>

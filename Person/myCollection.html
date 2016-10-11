@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <link rel="stylesheet" href="/styles/reset.css"/>
+    <link rel="stylesheet" href="/styles/main.css"/>
+    <link rel="stylesheet" href="/styles/money.css"/>
+    <title>我的收藏</title>
+    <script type="text/javascript" src="/scripts/component/mobilePublic.js"></script>
+</head>
+<body class="bgf5">
+<div class="header-search">
+    <input type="search" id="map-search" class="consult-search" placeholder="搜索问题、关键字">
+</div>
+<section id="consult-cont">
+    <ul class="consultList-menu" id="consultList-menu">
+        <li class="collect-btns active" id="collect-article">
+            <a href="javascript:;">群师文章</a>
+        </li>
+        <li id="collect-project">
+            <a href="javascript:;">服务项目</a>
+        </li>
+        <li class="collect-btns" id="collect-award"><a href="javascript:;">裁判文书</a></li>
+        <li class="collect-btns" id="collect-contract"><a href="javascript:;">合同文书</a></li>
+    </ul>
+    </div>
+    <div class="collect-list hide">
+        <dl class="collect-menu">
+            <dd data-id="144"><a href="javascritp:;">免费咨询</a></dd>
+            <dd data-id="145"><a href="javascritp:;">社会公益</a></dd>
+            <dd data-id="146"><a href="javascritp:;">悬赏求助</a></dd>
+            <dd data-id="147"><a href="javascritp:;">诉讼仲裁</a></dd>
+            <dd data-id="149"><a href="javascritp:;">诉讼金融</a></dd>
+            <dd data-id="170"><a href="javascritp:;">普惠金融</a></dd>
+            <dd data-id="171"><a href="javascritp:;">债权转让</a></dd>
+            <dd data-id="172"><a href="javascritp:;">债务危机</a></dd>
+            <dd data-id="174"><a href="javascritp:;">企业运营</a></dd>
+            <dd data-id="150"><a href="javascritp:;">法商学院</a></dd>
+            <dd data-id="151"><a href="javascritp:;">海外市场</a></dd>
+            <dd data-id="152"><a href="javascritp:;">安全保障</a></dd>
+        </dl>
+    </div>
+    <div class="consultList-tab" id="collectTab">
+    </div>
+    <script type="text/html" id="tpl-consultList">
+        <ul class="market_detail_list" id="insurance-list">
+            <%for(var i=0;i<data.length;i++){%>
+                <li>
+                    <a href="<%=data.linkUrl[i]%>">
+                        <div class="market_detail_tit">
+                            <h2>
+                                <%=data[i].DemandInfo.Title%>
+                            </h2>
+                        </div>
+                        <div class="market_detail_con">
+                            <p>
+                                <%=#data[i].DemandInfo.Memo%>
+                            </p>
+                        </div>
+                    </a>
+                </li>
+            <%}%>
+        </ul>
+    </script>
+</section>
+<script src="/scripts/lib/require.js" data-main="/scripts/modules/person/collection.js"></script>
+</body>
+</html>

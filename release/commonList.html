@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <link rel="stylesheet" href="/styles/reset.css"/>
+    <link rel="stylesheet" href="/styles/main.css"/>
+    <script type="text/javascript" src="/scripts/component/mobilePublic.js"></script>
+</head>
+<body class="bgf5">
+<header id="header">
+    <i class="back-ico" onclick="javascript:history.back();"></i>
+    <h2 id="header-tit"></h2>
+    <div id="header-ques-btn">
+        <em class="header-ques-ico"></em>
+        <span class="header-ques-txt">发布</span>
+    </div>
+</header>
+<div class="header-search">
+    <input type="search" class="consult-search" placeholder="搜索问题、关键字" />
+</div>
+<section id="consult-cont">
+    <ul class="consultList-menu" id="consultList-menu">
+    </ul>
+    <div class="consultList-tab" id="consultTab">
+    </div>
+</section>
+<script type="text/html" id="tpl-consultTab">
+    <% for(var i=0;i<data.length;i++){%>
+    <div class="consultList-item" data-id="<%=data[i].ID%>">
+        <p><%=data[i].Memo%></p>
+        <div class="consultList-pic">
+            <i class="consult-ico1"></i>
+            <span><%=data[i].ModuleName%></span>
+            <% if(data[i].TotalFee){%><em>￥<%=data[i].TotalFee%></em><%}%>
+        </div>
+        <div class="consultList-txt">
+            <img src="<%=data[i].MemberInfo.Avatar%>"/>
+            <span><%=data[i].MemberInfo.NickName%></span>
+            <time><%=data[i].PublishTime%></time>
+            <i class="ico1"></i>
+            <em><%=data[i].CommentCount%></em>
+            <i class="ico2"></i>
+            <em><%=data[i].CollectCount%></em>
+        </div>
+        <span class="consulte-ques hide">已解决</span>
+    </div>
+    <%}%>
+</script>
+</body>
+<script src="/scripts/lib/require.js" data-main="/scripts/modules/home/commonList.js"></script>
+</html>

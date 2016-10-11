@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <link rel="stylesheet" href="/styles/reset.css"/>
+    <title>法律法规详情</title>
+    <script type="text/javascript" src="/scripts/component/mobilePublic.js"></script>
+    <style>
+        body {
+            background-color: #fefefe;
+        }
+
+        .container {
+            padding: 10px 10px;
+        }
+
+        .head {
+            padding-left: 2em;
+        }
+
+        .title1 {
+            font-size:0.9rem;
+            border-left: 5px solid #2487f7;
+            padding-left: 5px;
+        }
+
+        .title2 {
+            font-size: 18px;
+            color: #2a84ef;
+        }
+
+        .subinfo {
+            font-size: 14px;
+            color: #333;
+            margin: 5px 0;
+        }
+        .content{
+            font-size:0.8rem;
+        }
+        .content p{
+            font-size:0.75rem;
+            color: #1f1d1d;
+            text-indent: 2em;
+            line-height:25px;
+        }
+
+        #header {
+            width: 100%;
+            height: 2.2rem;
+            position: fixed;
+            background: #333;
+            line-height: 2.2rem;
+            top: 0;
+            left: 0;
+            text-align: center;
+            z-index: 99999;
+        }
+
+        #header h2 {
+            color: #fff;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+        .back-ico {
+            background: url(/images/home-ico.png) no-repeat -0.3rem -7.6rem;
+            background-size: 18.75rem auto;
+            display: block;
+            width: 1rem;
+            height: 1rem;
+            position: absolute;
+            left: 1rem;
+            top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        if(window.location.search.indexOf('header=no')>=0){
+            document.getElementById("header").style.display="none";
+            document.body.style.paddingTop=0;
+        }
+    </script>
+    <div class="container">
+    </div>
+    <script type="text/html" id="tpl-lawInfo">
+        <div class="head">
+            <p class="title1">法律</p>
+
+            <p class="title2"><%=data.LawName%></p>
+
+            <p class="subinfo">发布单位 : <%=data.UnitName%></p>
+
+            <p class="subinfo">发布时间 : <%=data.ExecuteTime%></p>
+            <p class="subinfo">施行时间 : <%=data.PublishTime%></p>
+        </div>
+        <hr />
+        <div class="content">
+           <%=#data.Memo%>
+        </div>
+    </script>
+    <script src="/scripts/lib/require.js" data-main="/Scripts/modules/tools/lawInfo.js"></script>
+</body>
+</html>

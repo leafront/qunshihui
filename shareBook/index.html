@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <link rel="stylesheet" href="/styles/reset.css"/>
+    <link rel="stylesheet" href="/styles/main.css"/>
+    <title>共享账本</title>
+    <script type="text/javascript" src="/scripts/component/mobilePublic.js"></script>
+</head>
+<body>
+<section id="books-cont">
+    <div class="books-news-title">
+        <h3 id="books-new">+新建账本</h3>
+        <a href="/shareBook/delBookNote.html" class="header-ui-btns">删除</a>
+    </div>
+    <ul class="books-cont-menu" id="booksContMenu">
+    </ul>
+</section>
+<div id="books-mask-cont">
+    <span class="books-mask-close"></span>
+    <i class="books-mask-ico"></i>
+    <input type="text" placeholder="请填写账本名称" id="newbookname" maxlength="15" autofocus="autofocus" class="books-input" />
+    <button class="books-submit" id="btnCreate">提交</button>
+</div>
+<div class="books-mask"></div>
+<script type="text/html" id="tpl-shareBook">
+    <% for(var i=0;i<data.length;i++){%>
+        <li>
+            <a href="/shareBook/book.html?bookId=<%=data[i].ID%>">
+            <% if(data[i].IsTop==true){%>
+               <i class="books-ico1"></i>
+            <%}else{%>
+                <i class="books-ico2"></i>
+            <%}%>
+            <div class="books-txt">
+                <span><%=data[i].Name%></span>
+                <div class="books-img">
+                    <% for(var j=0;j<data[i].MemberList.length;j++){%>
+                        <img src="<%=data[i].MemberList[j].Avatar%>" />
+                    <%}%>
+                </div>
+            </div>
+            <i class="books-arrow"></i>
+            </a>
+        </li>
+    <%}%>
+</script>
+<script src="/scripts/lib/require.js" data-main="/scripts/modules/shareBook/index.js"></script>
+</body>
+</html>

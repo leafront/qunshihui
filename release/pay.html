@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <title>支付</title>
+    <meta content="telephone=no,email=no" name="format-detection">
+    <style>
+        body{background:url(/images/bg1.jpg) no-repeat;}
+    </style>
+</head>
+<body>
+<script id='spay-script' src='https://jspay.beecloud.cn/1/pay/jsbutton/returnscripts?appId=d63bc6eb-a13e-4c3f-9400-c972f5607dce'></script>
+<script>
+        var payData = JSON.parse(localStorage.getItem('release')).payData;
+        var title=payData.TradingTitle;
+        var amount=payData.Amount;
+        var returnUrl=payData.returnUrl;
+        var sign=payData.BCClickSign;
+        var orderId=payData.TradingNO;
+        var TradingType=payData.TradingType;
+        var DemandID=payData.DemandID;
+        var TradingNO=payData.TradingNO;
+        var openid=requestUrl('openid');
+        /**
+         * 2. 需要支付时调用BC.click接口传入参数
+         * 注: sign的解释见后文
+         */
+        BC.click({
+            "title": title, //商品名
+            "amount":amount,  //总价（分）
+            "openid":openid,
+            "out_trade_no": orderId, //自定义订单号
+            "sign":sign, //商品信息hash值，含义和生成方式见下文
+            "return_url": returnUrl, //支付成功后跳转的商户页面,可选，默认为http://payservice.beecloud.cn/spay/result.php
+            "optional": {"TradingType": TradingType,'DemandID':DemandID,'TradingNO':TradingNO} //可选，自定义webhook
+        });
+
+        /**
+         * click调用错误返回：默认行为console.log(err)
+         */
+        BC.err = function (err) {
+            //err 为object, 例 ｛”ERROR“ : "xxxx"｝;
+            console.log(err);
+        }
+        function requestUrl(name){
+            var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)",'i');
+            var r = window.location.search.substr(1).match(reg);
+            if(r!=null)return  unescape(r[2]); return null;
+        }
+</script>
+</body>
+</html>

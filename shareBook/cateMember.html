@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <link rel="stylesheet" href="/styles/reset.css"/>
+    <link rel="stylesheet" href="/styles/main.css"/>
+    <title>添加成员</title>
+    <script type="text/javascript" src="/scripts/component/mobilePublic.js"></script>
+</head>
+</head>
+<body>
+<section id="addMember-cont">
+    <ul class="addMember-menu">
+        <li id="addChart">
+            <span>微信添加</span>
+            <i class="addMenmber-ico"></i>
+        </li>
+        <li id="addMember">
+             <span>账号添加</span>
+             <i class="addMenmber-ico"></i>
+        </li>
+    </ul>
+</section>
+<script>
+    function requestUrl(name){
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if(r!=null)return  unescape(r[2]); return null;
+    }
+    document.getElementById('addChart').onclick=function(){
+        window.location.href='/shareBook/weChart.html?bookId='+requestUrl('bookId');
+    }
+    document.getElementById('addMember').onclick=function(){
+        window.location.href='/shareBook/addUserPhone.html?bookId='+requestUrl('bookId');
+    }
+</script>
+</body>
+</html>

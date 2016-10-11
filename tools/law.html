@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <link rel="stylesheet" href="/styles/reset.css"/>
+    <script type="text/javascript" src="/scripts/component/mobilePublic.js"></script>
+    <style>
+        input[type="button"], input[type="submit"], input[type="reset"] {
+            -webkit-appearance: none;
+        }
+        body {
+            background-color: #f3f3f3;
+            padding: 0;
+            margin: 0;
+            font-family: 'Microsoft YaHei';
+            padding-top:49px;
+        }
+        .searchWrap {
+            background-color: #000;
+            margin: 0;
+            padding: 8px 15px;
+            padding-right: 50px;
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            box-sizing:border-box;
+        }
+
+        .searchInput {
+            background-color: #fff;
+            color: #8e8e8e;
+            border: 1px solid #bbbbbb;
+            width: 90%;
+            margin-left:8%;
+            height: 31px;
+            line-height: 30px;
+            text-align: left;
+            padding: 5px;
+            font-size: 14px;
+            font-family: 'Microsoft YaHei';
+            background-repeat: no-repeat;
+            background-size: 32px 32px;
+        }
+
+        .searchImg {
+            position: absolute;
+            right: 10px;
+            top: 8px;
+            height: 32px;
+        }
+
+        .content {
+            max-width: 600px;
+            height: 100%;
+            margin: 0 auto;
+            font-family: 'Microsoft YaHei';
+        }
+
+        .bordersytle {
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            border-radius: 5px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            vertical-align: middle;
+        }
+
+        .container {
+            margin-top: 6px;
+        }
+
+        .wenshuclass {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+
+
+        .wenshuclass li {
+            border: none;
+            font-size: 14px;
+            color: #eaf3fe;
+            border-bottom: 1px solid #5aa8ff;
+            height:2rem;
+            line-height:2rem;
+            overflow:hidden;
+        }
+
+        .wenshuclass li.current {
+            font-size: 16px;
+            background-color: #f3f3f3;
+            color: #4dbbd4;
+        }
+
+
+        .titleItem {
+            margin: 0 0.25rem 0.25rem 0.25rem;
+            border: 1px solid #dedfe0;
+            background-color: #fff;
+            color: #333;
+            font-size: 0.7rem;
+            padding: 0.25rem;
+        }
+
+        .titleItem a {
+            color: #333;
+            font-size: 0.8rem;
+            text-decoration: none;
+        }
+
+        .moredata, .nodata {
+            padding: 5px;
+            background-color: #fff;
+            text-align: center;
+            color: #333;
+            font-size: 14px;
+            margin: 0 7px 11px 10px;
+        }
+        .back-ico{
+            background:url(/images/home-ico.png) no-repeat -0.3rem -7.6rem;
+            background-size:18.75rem auto;
+            display:block;
+            width:1rem;
+            height:1rem;
+            position:absolute;
+            left:0.5rem;
+            top:0.5rem;
+        }
+        .cotainer-menu {
+            background-color: #2487f7;
+            width: 76px;
+            float: left;
+            position: fixed;
+            top: 55px;
+            left: 0;
+            height: 100%;
+            padding-bottom:2.5rem;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="searchWrap">
+        <i class="back-ico" onclick="javascript:history.back()"></i>
+        <img class="searchImg pointer" id="searchImg" src="/images/search.png" />
+        <input type="text" class="searchInput bordersytle" placeholder="输入关键字查询" id="searchInput" />
+    </div>
+    <div class="container">
+        <div class="cotainer-menu">
+            <ul class="wenshuclass">
+            </ul>
+        </div>
+        <div style="padding-left: 76px;">
+            <div id="listContainer">
+            </div>
+            <div class="moredata pointer hide" id="moredata">查看更多数据</div>
+            <div class="nodata hide" id="nodata">没有更多数据了</div>
+
+        </div>
+    </div>
+    <script id="itemTplLaw" type="text/html">
+        <% for(var i=0;i<data.length;i++){%>
+        <div class="titleItem">
+            <a href="/Tools/LawInfo.html?LawID=<%=data[i].LawID%>">
+                <%=data[i].LawName%>
+            </a>
+            <span style="display:block;margin-right:10px; color:#4dbbd4; font-size:0.7rem;margin-top:0.5rem;"><%=data[i].UnitName%></span>
+        </div>
+        <%}%>
+    </script>
+    <script type="text/html" id="tpl-lawType">
+        <li data-id="" class="current">全部</li>
+        <%for(var i=0;i<data.length;i++){%>
+        <li data-id="<%=data[i].ID%>"><%=data[i].Name%></li>
+        <%}%>
+    </script>
+    <script src="/scripts/lib/require.js" data-main="/Scripts/modules/tools/law.js"></script>
+</body>
+</html>
